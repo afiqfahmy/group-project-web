@@ -25,6 +25,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 10;
 }
 
 .logo {
@@ -105,17 +106,68 @@ nav a:hover {
 .category-card h2 {
     font-size: 28px;
     margin-bottom: 10px;
+    color: black;
+}
+
+.category-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: black;
 }
 
 .category-card p {
     color: #6e6e73;
     margin-bottom: 16px;
+    color: black;
 }
 
 .category-card a {
     text-decoration: none;
     color: #0071e3;
     font-size: 16px;
+}
+
+.product-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.product-card {
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0.08);
+    background: #f5f5f7;
+    border-radius: 20px;
+    padding: 30px 24px;
+    text-align: center;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    /* Add code below to let content fill in all the spcae of product card*/
+    /* Make sure all the button are on the most bottom */
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.product-card button {
+    background: #0071e3;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 999px;
+    border-width: 0px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: auto;
+}
+
+/* Keyboard accessibility (bonus marks) */
+.product-card:focus {
+    outline: 2px solid #0071e3;
+    outline-offset: 4px;
 }
 
 /* FOOTER */
@@ -126,34 +178,6 @@ footer {
     font-size: 13px;
     color: #6e6e73;
 }
-
-.product-card {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-.product-card {
-    background: #f5f5f7;
-    border-radius: 20px;
-    padding: 30px 24px;
-    text-align: center;
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-}
-
-/* Keyboard accessibility (bonus marks) */
-.product-card:focus {
-    outline: 2px solid #0071e3;
-    outline-offset: 4px;
-}
-
 
 /* -----------------------------------------------------------------------main page------------------------------------------------------------------------- */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -214,6 +238,10 @@ footer {
     border-radius: 14px;
 }
 
+.product-img img {
+    width: 100%;
+}
+
 /* Temporary placeholder color */
 .placeholder {
     background: linear-gradient(135deg, #d2d2d7, #f5f5f7);
@@ -222,6 +250,11 @@ footer {
 /* TEXT */
 .product-card h2 {
     font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.product-card h3 {
+    font-size: 14px;
     margin-bottom: 8px;
 }
 
@@ -234,6 +267,7 @@ footer {
     font-size: 16px;
     color: #1d1d1f;
     font-weight: 500;
+    margin-bottom: 10px;
 }
 
 /* ACTIVE NAV */
