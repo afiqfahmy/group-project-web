@@ -48,17 +48,17 @@ nav a:hover {
 
 nav > a::after {
     content: "";
-    position: absolute;
     left: 0px;
-    bottom: -5px;
+    bottom: -10px;
     width: 0%;
     height: 1px;
-    background-color: black;
+    position: absolute;
     transition: width 0.3s ease-in-out;
+    background-color: black;
 }
 
 nav > a:hover::after {
-    width: 100%;
+    width: 90%;
 }
 
 /* HERO */
@@ -143,48 +143,6 @@ nav > a:hover::after {
     font-size: 16px;
 }
 
-.product-card {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-.product-card {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
-    background: #f5f5f7;
-    border-radius: 20px;
-    padding: 30px 24px;
-    text-align: center;
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-    /* Add code below to let content fill in all the spcae of product card*/
-    /* Make sure all the button are on the most bottom */
-    display: flex;
-    flex-direction: column;
-}
-
-.product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-}
-
-.product-card button {
-    background: #0071e3;
-    color: white;
-    padding: 12px 28px;
-    border-radius: 999px;
-    border-width: 0px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: auto;
-}
-
-/* Keyboard accessibility (bonus marks) */
-.product-card:focus {
-    outline: 2px solid #0071e3;
-    outline-offset: 4px;
-}
 
 /* FOOTER */
 footer {
@@ -235,15 +193,39 @@ footer {
 
 /* PRODUCT CARD */
 .product-card {
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
     background: #f5f5f7;
     border-radius: 20px;
     padding: 30px 24px;
     text-align: center;
-    transition: transform 0.3s ease;
+    /* Add code below to let content fill in all the spcae of product card*/
+    /* Make sure all the button are on the most bottom */
+    display: flex;
+    flex-direction: column;
 }
 
 .product-card:hover {
     transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.product-card button {
+    background: #0071e3;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 999px;
+    border-width: 0px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: auto;
+}
+
+/* Keyboard accessibility (bonus marks) */
+.product-card:focus {
+    outline: 2px solid #0071e3;
+    outline-offset: 4px;
 }
 
 /* IMAGE PLACEHOLDER */
@@ -294,3 +276,35 @@ nav a.active {
 
 /* -----------------------------------------------------------------------iphone page------------------------------------------------------------------------ */
 /* --------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* ------------------------------------- Page fade out animation ---------------------------------------- */
+/* Starting state, hiding all the element and move down a bit */
+/* Using cubic-bezier to make the slice animation */
+.fade-on-scroll {
+    opacity: 0; 
+    transform: translateY(40px);
+    transition: 
+        box-shadow 0.3s ease,
+        opacity 0.8s ease-out,
+        transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+/* End state, show all the element with fading up animation */
+.fade-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Let the product card pop out one by one */
+.product-card:nth-child(1) {
+    transition-delay: 100ms;
+}
+
+.product-card:nth-child(2) {
+    transition-delay: 200ms;
+}
+
+.product-card:nth-child(3) {
+    transition-delay: 300ms;
+}
