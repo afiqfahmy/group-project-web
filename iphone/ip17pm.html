@@ -5,33 +5,40 @@
     <meta charset="UTF-8">
     <title>Buy iPhone 17 Pro Max - TechStore</title>
     <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Essential CSS for functionality */
+        .selected-swatch {
+            outline: 2px solid #0071e3;
+            outline-offset: 3px;
+        }
 
-    <script>
-        // Select the elements
-        const swatches = document.querySelectorAll('.swatch-circle');
-        const mainImg = document.querySelector('.gallery img');
-        const colorLabel = document.getElementById('color-name'); // Ensure your <span> has this ID
+        .storage-card {
+            border: 2px solid #d2d2d7;
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: border-color 0.3s;
+            margin-bottom: 10px;
+        }
 
-        swatches.forEach(swatch => {
-            swatch.addEventListener('click', function () {
-                // 1. Update the Image
-                const newImgPath = this.getAttribute('data-image');
-                if (newImgPath) {
-                    mainImg.src = newImgPath;
-                }
+        .storage-card.selected-storage {
+            border-color: #0071e3;
+        }
 
-                // 2. Update the Text (the title attribute)
-                const newColorName = this.getAttribute('title');
-                if (colorLabel) {
-                    colorLabel.innerText = newColorName;
-                }
+        .swatch-circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 15px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+        }
 
-                // 3. Update the Visual "Lock" (Blue Ring)
-                swatches.forEach(s => s.classList.remove('selected-swatch'));
-                this.classList.add('selected-swatch');
-            });
-        });
-    </script>
+        .gray-text {
+            color: #6e6e73;
+        }
+    </style>
 </head>
 
 <body class="product-page">
@@ -40,30 +47,29 @@
         <div class="sub-nav-content">
             <span class="product-name">iPhone 17 Pro Max</span>
             <div class="sub-nav-right">
-                <span>From RM 5,499</span>
+                <span id="nav-price">From RM 5,499</span>
             </div>
         </div>
     </div>
 
     <main class="purchase-container">
-
         <section class="gallery">
             <div class="gallery-wrapper">
-                <img src="../image/iphone/iPhone17PM.png" alt="iPhone 17 Pro Max">
+                <img id="main-product-img" src="../image/iphone/iPhone17PM.png" alt="iPhone 17 Pro Max"
+                    style="width: 100%; max-width: 450px;">
             </div>
         </section>
 
         <section class="options-sidebar">
             <h1 class="buy-title">Buy iPhone 17 Pro Max</h1>
+
             <div class="section-group">
-                <h3>Finish. <span class="gray-text">Natural Titanium</span></h3>
+                <h3>Finish. <span id="color-name" class="gray-text">Natural Titanium</span></h3>
                 <div class="swatch-row">
                     <div class="swatch-circle" style="background: #C0C0C0;" data-image="../image/iphone/17pm-silver.png"
                         title="Silver"></div>
-
                     <div class="swatch-circle" style="background: #ffa266;" data-image="../image/iphone/17pm-gold.png"
                         title="Cosmic Orange"></div>
-
                     <div class="swatch-circle" style="background: #4F4F6F;" data-image="../image/iphone/17pm-blue.png"
                         title="Deep Blue"></div>
                 </div>
@@ -72,23 +78,59 @@
             <div class="section-group">
                 <h3>Storage. <span class="gray-text">How much space do you need?</span></h3>
                 <div class="storage-list">
-                    <div class="storage-card">
+                    <div class="storage-card" data-price="RM 5,499">
                         <span class="size">256GB</span>
-                        <span class="price-tag">From RM 5,499</span>
+                        <span class="price-tag">RM 5,499</span>
                     </div>
-                    <div class="storage-card">
+                    <div class="storage-card" data-price="RM 6,499">
                         <span class="size">512GB</span>
-                        <span class="price-tag">From RM 6,499</span>
+                        <span class="price-tag">RM 6,499</span>
                     </div>
-                    <div class="storage-card">
+                    <div class="storage-card" data-price="RM 7,499">
                         <span class="size">1TB</span>
-                        <span class="price-tag">From RM 7,499</span>
+                        <span class="price-tag">RM 7,499</span>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- COLOR SELECTION LOGIC ---
+            const swatches = document.querySelectorAll('.swatch-circle');
+            const mainImg = document.getElementById('main-product-img');
+            const colorLabel = document.getElementById('color-name');
+
+            swatches.forEach(swatch => {
+                swatch.addEventListener('click', function () {
+                    // Update Image
+                    mainImg.src = this.getAttribute('data-image');
+                    // Update Text
+                    colorLabel.innerText = this.getAttribute('title');
+                    // Update Visual Ring
+                    swatches.forEach(s => s.classList.remove('selected-swatch'));
+                    this.classList.add('selected-swatch');
+                });
+            });
+
+            // --- STORAGE & PRICE LOGIC ---
+            const storageCards = document.querySelectorAll('.storage-card');
+            const navPrice = document.getElementById('nav-price');
+
+            storageCards.forEach(card => {
+                card.addEventListener('click', function () {
+                    // Update the price in the top sub-nav
+                    const selectedPrice = this.getAttribute('data-price');
+                    navPrice.innerText = selectedPrice;
+
+                    // Update Visual "Selected" Box
+                    storageCards.forEach(c => c.classList.remove('selected-storage'));
+                    this.classList.add('selected-storage');
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
