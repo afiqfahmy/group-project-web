@@ -6,10 +6,30 @@
     <title>Buy iPhone 17 Pro Max - TechStore</title>
     <link rel="stylesheet" href="../styles.css">
     <style>
-        /* Essential CSS for functionality */
+        /* Essential CSS for functionality and sizing */
         .selected-swatch {
             outline: 2px solid #0071e3;
             outline-offset: 3px;
+        }
+
+        /* This fixes the size difference between your images */
+        .gallery-wrapper {
+            width: 100%;
+            max-width: 500px;
+            height: 600px;
+            /* Fixed height forces consistency */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        #main-product-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            /* Scales phone to fill space regardless of file padding */
+            transition: opacity 0.3s ease;
         }
 
         .storage-card {
@@ -18,16 +38,19 @@
             padding: 20px;
             cursor: pointer;
             transition: border-color 0.3s;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
         }
 
         .storage-card.selected-storage {
             border-color: #0071e3;
+            background-color: rgba(0, 113, 227, 0.05);
         }
 
         .swatch-circle {
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             display: inline-block;
             margin-right: 15px;
@@ -38,14 +61,27 @@
         .gray-text {
             color: #6e6e73;
         }
+
+        .purchase-container {
+            display: flex;
+            gap: 50px;
+            padding: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .options-sidebar {
+            flex: 1;
+        }
     </style>
 </head>
 
 <body class="product-page">
 
     <div class="sub-nav">
-        <div class="sub-nav-content">
-            <span class="product-name">iPhone 17 Pro Max</span>
+        <div class="sub-nav-content"
+            style="display: flex; justify-content: space-between; padding: 15px 50px; border-bottom: 1px solid #d2d2d7;">
+            <span class="product-name" style="font-weight: bold;">iPhone 17 Pro Max</span>
             <div class="sub-nav-right">
                 <span id="nav-price">From RM 5,499</span>
             </div>
@@ -55,29 +91,31 @@
     <main class="purchase-container">
         <section class="gallery">
             <div class="gallery-wrapper">
-                <img id="main-product-img" src="../image/iphone/iPhone17PM.png" alt="iPhone 17 Pro Max"
-                    style="width: 100%; max-width: 450px;">
+                <img id="main-product-img" src="../image/iphone/iPhone17PM.png" alt="iPhone 17 Pro Max">
             </div>
         </section>
 
         <section class="options-sidebar">
-            <h1 class="buy-title">Buy iPhone 17 Pro Max</h1>
+            <h1 class="buy-title" style="font-size: 40px; margin-bottom: 30px;">Buy iPhone 17 Pro Max</h1>
 
-            <div class="section-group">
-                <h3>Finish. <span id="color-name" class="gray-text">Natural Titanium</span></h3>
-                <div class="swatch-row">
-                    <div class="swatch-circle" style="background: #C0C0C0;" data-image="../image/iphone/17pm-silver.png"
-                        title="Silver"></div>
-                    <div class="swatch-circle" style="background: #ffa266;" data-image="../image/iphone/17pm-gold.png"
+            <div class="section-group" style="margin-bottom: 40px;">
+                <h3>Finish. <span id="color-name" class="gray-text">Select a color</span></h3>
+                <div class="swatch-row" style="margin-top: 15px;">
+                    <div class="swatch-circle" style="background: #C0C0C0;"
+                        data-image="../image/iphone/17pm-silver-removebg-preview.png" title="Silver"></div>
+
+                    <div class="swatch-circle" style="background: #ffa266;"
+                        data-image="../image/iphone/iphone-17-pro-cosmicOrange-removebg-preview.png"
                         title="Cosmic Orange"></div>
-                    <div class="swatch-circle" style="background: #4F4F6F;" data-image="../image/iphone/17pm-blue.png"
-                        title="Deep Blue"></div>
+
+                    <div class="swatch-circle" style="background: #4F4F6F;"
+                        data-image="../image/iphone/iphone-17-pro-mBlue-removebg-preview.png" title="Deep Blue"></div>
                 </div>
             </div>
 
             <div class="section-group">
                 <h3>Storage. <span class="gray-text">How much space do you need?</span></h3>
-                <div class="storage-list">
+                <div class="storage-list" style="margin-top: 15px;">
                     <div class="storage-card" data-price="RM 5,499">
                         <span class="size">256GB</span>
                         <span class="price-tag">RM 5,499</span>
@@ -97,34 +135,34 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- COLOR SELECTION LOGIC ---
+            // Color Logic
             const swatches = document.querySelectorAll('.swatch-circle');
             const mainImg = document.getElementById('main-product-img');
             const colorLabel = document.getElementById('color-name');
 
             swatches.forEach(swatch => {
                 swatch.addEventListener('click', function () {
-                    // Update Image
-                    mainImg.src = this.getAttribute('data-image');
-                    // Update Text
+                    const newImg = this.getAttribute('data-image');
+                    if (newImg) {
+                        mainImg.style.opacity = '0'; // Quick fade out
+                        setTimeout(() => {
+                            mainImg.src = newImg;
+                            mainImg.style.opacity = '1'; // Fade in
+                        }, 150);
+                    }
                     colorLabel.innerText = this.getAttribute('title');
-                    // Update Visual Ring
                     swatches.forEach(s => s.classList.remove('selected-swatch'));
                     this.classList.add('selected-swatch');
                 });
             });
 
-            // --- STORAGE & PRICE LOGIC ---
+            // Storage Logic
             const storageCards = document.querySelectorAll('.storage-card');
             const navPrice = document.getElementById('nav-price');
 
             storageCards.forEach(card => {
                 card.addEventListener('click', function () {
-                    // Update the price in the top sub-nav
-                    const selectedPrice = this.getAttribute('data-price');
-                    navPrice.innerText = selectedPrice;
-
-                    // Update Visual "Selected" Box
+                    navPrice.innerText = this.getAttribute('data-price');
                     storageCards.forEach(c => c.classList.remove('selected-storage'));
                     this.classList.add('selected-storage');
                 });
