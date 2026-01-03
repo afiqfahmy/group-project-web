@@ -8,6 +8,54 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 
+    <style>
+        /* HERO SECTION */
+        .hero {
+            min-height: 100vh;
+            /* Full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* Vertical center */
+            align-items: center;
+            /* Horizontal center */
+            text-align: center;
+            gap: 16px;
+            /* Space between items */
+        }
+
+        /* Optional button styling (if not already) */
+        .btn {
+            display: inline-block;
+            padding: 12px 26px;
+            background-color: #0071e3;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 999px;
+            font-weight: 500;
+
+            /* Smooth animation */
+            transition:
+                background-color 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        /* Hover effect */
+        .btn:hover {
+            background-color: #005bb5;
+            transform: translateY(-2px);
+            /* slight lift */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Click (active) effect */
+        .btn:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+        }
+    </style>
+
 </head>
 
 <body>
