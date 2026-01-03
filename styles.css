@@ -503,14 +503,35 @@ footer {
 
 .fade-on-scroll {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(30px);
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
 }
 
+/* Visible */
 .fade-on-scroll.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Page enter */
+body {
+    opacity: 0;
+    animation: pageFadeIn 0.35s ease forwards;
+}
+
+@keyframes pageFadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Exit already handled */
+body.page-exit {
+    opacity: 0;
+}
+
 
 
 /* Stagger Effect */

@@ -1,19 +1,21 @@
 // Fade-in on scroll
-function fade_out() {
+function fade_on_scroll() {
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
+        entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // Force reflow so animation always plays
+                entry.target.getBoundingClientRect();
                 entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.15 });
 
-    document
-        .querySelectorAll('.fade-on-scroll')
+    document.querySelectorAll('.fade-on-scroll')
         .forEach(el => observer.observe(el));
 }
 
-fade_out();
+fade_on_scroll();
 
 
 // Page transition (fade out on link click)
@@ -22,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         link.addEventListener('click', e => {
 
-            // Skip special links
             if (
                 link.target === '_blank' ||
                 link.href.startsWith('mailto:') ||
@@ -31,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ) return;
 
             e.preventDefault();
-
             document.body.classList.add('page-exit');
 
             setTimeout(() => {
