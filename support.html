@@ -4,32 +4,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechStore | Premium Apple Devices</title>
+    <title>TechStore | Support</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-    <header class="header">
-        <div class="logo">TechStore</div>
-        <nav>
-            <a href="index.html">Store</a>
-            <a href="iphone/iphone.html">iPhone</a>
-            <a href="ipad/ipad.html">iPad</a>
-            <a href="mac/mac.html">Mac</a>
-            <a href="support.html" class="active">Support</a>
-        </nav>
+
+    <header class="apple-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">TechStore</a>
+
+            <nav class="main-nav">
+                <a href="../main.html">Store</a>
+                <a href="iphone.html">iPhone</a>
+                <a href="../ipad/ipad.html">iPad</a>
+                <a href="../mac/mac.html">Mac</a>
+                <a href="../support.html" class="active">Support</a>
+            </nav>
+        </div>
     </header>
 
-    <!-- Support page -->
-    <section class="hero">
-        <h1>Support</h1>
-        <p>Can contact our customer service for any help.</p>
+
+    <!-- SUPPORT SECTION -->
+    <section class="support">
+        <h1>How can we help?</h1>
+        <p>Fill in the form below and our support team will assist you.</p>
+
+        <form id="supportForm" class="support-form">
+            <input type="text" placeholder="Your name" required>
+            <input type="email" placeholder="Email address" required>
+
+            <select required>
+                <option value="" disabled selected>Type of report</option>
+                <option>Technical Issue</option>
+                <option>Order Problem</option>
+                <option>Payment Issue</option>
+                <option>General Inquiry</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <p id="successMessage" class="success-message">
+            Your report has been submitted.
+        </p>
     </section>
 
-    <footer>
-        <p>© 2025 TechStore. All rights reserved.</p>
-    </footer>
+    <script>
+        const form = document.getElementById("supportForm");
+        const message = document.getElementById("successMessage");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            form.style.display = "none";
+            message.style.display = "block";
+
+            setTimeout(() => {
+                window.location.href = "main.html";
+            }, 2000);
+        });
+    </script>
 
 </body>
 

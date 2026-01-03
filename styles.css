@@ -16,64 +16,77 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
     background-color: #ffffff;
     color: #1d1d1f;
+    display: flex;
+    flex-direction: column;
+}
+
+html,
+body {
+    height: 100%;
 }
 
 /* ===================================================================================================== */
 /* =============================================== HEADER ============================================== */
 /* ===================================================================================================== */
 
-.header {
+/* Apple-style Header */
+.apple-header {
     position: sticky;
     top: 0;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid #e5e5e5;
-    padding: 16px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 10;
+    z-index: 1000;
+
+    background-color: #ffffff;
+    border-bottom: 1px solid #d2d2d7;
 }
 
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo */
 .logo {
-    font-weight: 600;
     font-size: 20px;
+    font-weight: 600;
+    color: #1d1d1f;
+    text-decoration: none;
 }
 
 /* Navigation */
+.main-nav {
+    display: flex;
+    gap: 28px;
+}
 
-nav a {
-    position: relative;
-    margin-left: 24px;
-    text-decoration: none;
+.main-nav a {
     font-size: 14px;
+    font-weight: 400;
     color: #1d1d1f;
-    opacity: 0.85;
+    text-decoration: none;
+    position: relative;
 }
 
-nav a:hover {
-    opacity: 1;
+/* Hover effect */
+.main-nav a:hover {
+    opacity: 0.7;
 }
 
-nav>a::after {
+/* Active link (Apple subtle underline) */
+.main-nav a.active::after {
     content: "";
-    left: 0;
-    bottom: -10px;
-    width: 0%;
-    height: 1px;
     position: absolute;
-    transition: width 0.3s ease-in-out;
-    background-color: black;
+    left: 0;
+    bottom: -16px;
+    width: 100%;
+    height: 2px;
+    background-color: #1d1d1f;
 }
 
-nav>a:hover::after {
-    width: 90%;
-}
-
-nav a.active {
-    opacity: 1;
-    font-weight: 600;
-}
 
 /* ===================================================================================================== */
 /* ================================================ HERO =============================================== */
@@ -121,18 +134,27 @@ nav a.active {
 }
 
 .category-card {
-    text-align: center;
-    padding: 40px 24px;
+    display: block;
+    background: #ffffff;
     border-radius: 18px;
-    background: #f5f5f7;
-    transition: transform 0.3s ease;
+    padding: 24px;
+    text-align: center;
+
     text-decoration: none;
     color: inherit;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
 }
 
 .category-card:hover {
     transform: translateY(-6px);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
+    background-color: #f9f9fb;
 }
+
 
 .category-card img {
     width: 180px;
@@ -177,6 +199,10 @@ footer {
     color: #6e6e73;
 }
 
+.content {
+    flex: 1;
+}
+
 /* ===================================================================================================== */
 /* ============================================ PRODUCT LIST PAGE ====================================== */
 /* ===================================================================================================== */
@@ -209,22 +235,28 @@ footer {
 /* Product Card (FINAL VERSION KEPT) */
 
 .product-card {
+    display: block;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 24px;
+    text-align: center;
+
     text-decoration: none;
     color: inherit;
-    background: #ffffff;
-    border-radius: 28px;
-    padding: 40px 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
 }
 
 .product-card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transform: translateY(-6px);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
+    background-color: #f9f9fb;
+    /* subtle Apple gray */
 }
+
 
 .product-card h2 {
     font-size: 24px;
@@ -290,21 +322,36 @@ footer {
 /* Learn More Button */
 
 .learn-more-btn {
-    background: #0071e3;
-    color: white;
-    padding: 12px 0;
-    width: 100%;
-    border-radius: 12px;
-    text-decoration: none;
+    display: inline-flex;
+    /* key for perfect centering */
+    align-items: center;
+    /* vertical center */
+    justify-content: center;
+    /* horizontal center */
+
+    padding: 8px 16px;
+    /* Apple-like spacing */
+    margin: 16px auto 20px;
+    /* center button inside card */
+
     font-size: 14px;
     font-weight: 500;
-    margin-top: 20px;
-    display: inline-block;
+    text-decoration: none;
+
+    color: #0066cc;
+    /* Apple blue */
+    border: 1px solid #0066cc;
+    border-radius: 999px;
+    /* pill shape */
+
+    transition: all 0.25s ease;
 }
 
 .learn-more-btn:hover {
-    background: #0077ed;
+    background-color: #0066cc;
+    color: #ffffff;
 }
+
 
 /* ===================================================================================================== */
 /* ============================================ PRODUCT DETAIL PAGE ==================================== */
@@ -456,18 +503,15 @@ footer {
 
 .fade-on-scroll {
     opacity: 0;
-    transform: translateY(40px);
-    transition:
-        box-shadow 0.3s ease,
-        opacity 0.8s ease-out,
-        transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-    will-change: opacity, transform;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .fade-on-scroll.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
+
 
 /* Stagger Effect */
 
@@ -481,4 +525,69 @@ footer {
 
 .product-card:nth-child(3) {
     transition-delay: 300ms;
+}
+
+/* ===================================================================================================== */
+/* ============================================ SUPPORT PAGE ==================================== */
+/* ===================================================================================================== */
+
+.support {
+    max-width: 480px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.support h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.support p {
+    color: #6e6e73;
+    margin-bottom: 32px;
+}
+
+.support-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.support-form input,
+.support-form select {
+    padding: 14px 16px;
+    font-size: 15px;
+    border-radius: 12px;
+    border: 1px solid #d2d2d7;
+    outline: none;
+}
+
+.support-form input:focus,
+.support-form select:focus {
+    border-color: #0071e3;
+}
+
+.support-form button {
+    margin-top: 8px;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: 500;
+    background: #0071e3;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.25s ease;
+}
+
+.support-form button:hover {
+    background: #005bb5;
+}
+
+.success-message {
+    display: none;
+    font-size: 18px;
+    font-weight: 500;
+    color: #1d1d1f;
 }

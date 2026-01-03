@@ -73,8 +73,36 @@
         .options-sidebar {
             flex: 1;
         }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+
+            font-size: 14px;
+            font-weight: 500;
+            color: #0071e3;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
+    <header class="apple-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">TechStore</a>
+
+            <nav class="main-nav">
+                <a href="../main.html">Store</a>
+                <a href="iphone.html" class="active">iPhone</a>
+                <a href="../ipad/ipad.html">iPad</a>
+                <a href="../mac/mac.html">Mac</a>
+                <a href="../support.html">Support</a>
+            </nav>
+        </div>
+    </header>
+
 
 <body class="product-page">
 
@@ -131,6 +159,10 @@
                     </div>
                 </div>
             </div>
+
+            <a href="iphone.html" class="back-link">
+                ← Back to iPhone
+            </a>
         </section>
     </main>
 
