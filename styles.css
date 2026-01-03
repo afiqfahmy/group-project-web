@@ -1,20 +1,27 @@
-/* --------------------------------------------------------------------------------------------------------------------------------------------------------- */
-/* -----------------------------------------------------------------------main page------------------------------------------------------------------------- */
-/* RESET */
+/* ===================================================================================================== */
+/* =============================================== RESET =============================================== */
+/* ===================================================================================================== */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* BASE */
+/* ===================================================================================================== */
+/* ================================================ BASE =============================================== */
+/* ===================================================================================================== */
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
     background-color: #ffffff;
     color: #1d1d1f;
 }
 
-/* HEADER */
+/* ===================================================================================================== */
+/* =============================================== HEADER ============================================== */
+/* ===================================================================================================== */
+
 .header {
     position: sticky;
     top: 0;
@@ -33,6 +40,8 @@ body {
     font-size: 20px;
 }
 
+/* Navigation */
+
 nav a {
     position: relative;
     margin-left: 24px;
@@ -48,7 +57,7 @@ nav a:hover {
 
 nav>a::after {
     content: "";
-    left: 0px;
+    left: 0;
     bottom: -10px;
     width: 0%;
     height: 1px;
@@ -61,7 +70,15 @@ nav>a:hover::after {
     width: 90%;
 }
 
-/* HERO */
+nav a.active {
+    opacity: 1;
+    font-weight: 600;
+}
+
+/* ===================================================================================================== */
+/* ================================================ HERO =============================================== */
+/* ===================================================================================================== */
+
 .hero {
     text-align: center;
     padding: 120px 20px;
@@ -92,7 +109,10 @@ nav>a:hover::after {
     background: #005bb5;
 }
 
-/* CATEGORIES */
+/* ===================================================================================================== */
+/* ============================================== CATEGORIES =========================================== */
+/* ===================================================================================================== */
+
 .categories {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -119,20 +139,22 @@ nav>a:hover::after {
     margin-bottom: 24px;
 }
 
+.category-card h2,
+.category-card h3 {
+    color: black;
+}
+
 .category-card h2 {
     font-size: 28px;
     margin-bottom: 10px;
-    color: black;
 }
 
 .category-card h3 {
     font-size: 24px;
     margin-bottom: 10px;
-    color: black;
 }
 
 .category-card p {
-    color: #6e6e73;
     margin-bottom: 16px;
     color: black;
 }
@@ -143,8 +165,10 @@ nav>a:hover::after {
     font-size: 16px;
 }
 
+/* ===================================================================================================== */
+/* ================================================ FOOTER ============================================= */
+/* ===================================================================================================== */
 
-/* FOOTER */
 footer {
     text-align: center;
     padding: 40px 20px;
@@ -153,20 +177,10 @@ footer {
     color: #6e6e73;
 }
 
-/* -----------------------------------------------------------------------main page------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------------------------------------------- */
+/* ===================================================================================================== */
+/* ============================================ PRODUCT LIST PAGE ====================================== */
+/* ===================================================================================================== */
 
-
-/* --------------------------------------------------------------------------------------------------------------------------------------------------------- */
-/* -----------------------------------------------------------------------ipad page------------------------------------------------------------------------- */
-
-
-/* -----------------------------------------------------------------------ipad page------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------------------------------------------------------------------------------------- */
-
-
-/* --------------------------------------------------------------------------------------------------------------------------------------------------------- */
-/* -----------------------------------------------------------------------iphone page------------------------------------------------------------------------ */
 .product-hero {
     text-align: center;
     padding: 100px 20px 60px;
@@ -183,7 +197,8 @@ footer {
     color: #6e6e73;
 }
 
-/* PRODUCT GRID */
+/* Product Grid */
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -191,62 +206,26 @@ footer {
     padding: 60px;
 }
 
-/* PRODUCT CARD */
+/* Product Card (FINAL VERSION KEPT) */
+
 .product-card {
     text-decoration: none;
     color: inherit;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
-    background: #f5f5f7;
-    border-radius: 20px;
-    padding: 30px 24px;
-    text-align: center;
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 40px 24px;
     display: flex;
     flex-direction: column;
-    transition:
-        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-        box-shadow 0.35s ease;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-.product-card button {
-    background: #0071e3;
-    color: white;
-    padding: 12px 28px;
-    border-radius: 999px;
-    border-width: 0px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: auto;
-}
-
-/* Keyboard accessibility (bonus marks) */
-.product-card:focus {
-    outline: 2px solid #0071e3;
-    outline-offset: 4px;
-}
-
-/* IMAGE PLACEHOLDER */
-.product-img {
-    width: 100%;
-    height: 260px;
-    margin-bottom: 24px;
-    border-radius: 14px;
-}
-
-.product-img img {
-    width: 100%;
-}
-
-/* Temporary placeholder color */
-.placeholder {
-    background: linear-gradient(135deg, #d2d2d7, #f5f5f7);
-}
-
-/* TEXT */
 .product-card h2 {
     font-size: 24px;
     margin-bottom: 8px;
@@ -264,24 +243,57 @@ footer {
 
 .product-card span {
     font-size: 16px;
-    color: #1d1d1f;
     font-weight: 500;
     margin-bottom: 10px;
 }
 
-/* ACTIVE NAV */
-nav a.active {
-    opacity: 1;
-    font-weight: 600;
+.product-card button {
+    background: #0071e3;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 999px;
+    border-width: 0;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: auto;
 }
+
+/* Accessibility */
+
+.product-card:focus {
+    outline: 2px solid #0071e3;
+    outline-offset: 4px;
+}
+
+/* Product Image */
+
+.product-img {
+    width: 100%;
+    height: 260px;
+    margin-bottom: 24px;
+    border-radius: 14px;
+}
+
+.product-img img,
+.product-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: contain;
+}
+
+/* Placeholder */
+
+.placeholder {
+    background: linear-gradient(135deg, #d2d2d7, #f5f5f7);
+}
+
+/* Learn More Button */
 
 .learn-more-btn {
     background: #0071e3;
     color: white;
     padding: 12px 0;
-    /* Vertical padding only */
     width: 100%;
-    /* Makes it span the card */
     border-radius: 12px;
     text-decoration: none;
     font-size: 14px;
@@ -294,59 +306,35 @@ nav a.active {
     background: #0077ed;
 }
 
-.product-card {
-    background: #ffffff;
-    /* Change from light grey to white */
-    border-radius: 28px;
-    /* Rounder corners */
-    padding: 40px 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    /* Softer shadow */
-}
+/* ===================================================================================================== */
+/* ============================================ PRODUCT DETAIL PAGE ==================================== */
+/* ===================================================================================================== */
 
-.product-card:hover {
-    transform: scale(1.02);
-    /* Slight grow effect instead of just moving up */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-.product-card img {
-    width: 100%;
-    height: 260px;
-    /* Give it a fixed height */
-    object-fit: contain;
-    /* This prevents stretching while keeping the image whole */
-}
-
-/* Product Page Layout */
 .product-page {
     background-color: #ffffff;
 }
 
-/* Sticky Sub-Nav */
+/* Sticky Sub Navigation (FINAL VERSION KEPT) */
+
 .sub-nav {
     position: sticky;
-    top: 60px;
-    /* Sits below your main header */
+    top: 0;
+    width: 100%;
     height: 52px;
     background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid #d2d2d7;
-    z-index: 9;
+    z-index: 100;
 }
 
 .sub-nav-content {
     max-width: 1000px;
     margin: 0 auto;
+    height: 100%;
+    padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
-    padding: 0 20px;
 }
 
 .product-name {
@@ -354,112 +342,18 @@ nav a.active {
     font-weight: 600;
 }
 
-/* Main Purchase Area */
-.purchase-container {
-    display: flex;
-    max-width: 1200px;
-    margin: 40px auto;
-    gap: 50px;
-    padding: 0 20px;
-}
+/* Purchase Layout */
 
-.gallery {
-    flex: 1.5;
-    position: sticky;
-    top: 150px;
-    height: fit-content;
-}
-
-.gallery img {
-    width: 100%;
-    max-height: 600px;
-    object-fit: contain;
-}
-
-.options {
-    flex: 1;
-}
-
-.hero-title {
-    font-size: 40px;
-    font-weight: 600;
-    margin-bottom: 10px;
-}
-
-/* Option Cards (Capacity) */
-.grid-options {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin-top: 15px;
-}
-
-.option-card {
-    border: 1px solid #d2d2d7;
-    border-radius: 12px;
-    padding: 20px;
-    background: none;
-    cursor: pointer;
-    text-align: left;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.option-card:hover {
-    border-color: #0071e3;
-}
-
-.option-card .cap {
-    font-size: 17px;
-    font-weight: 600;
-}
-
-/* Swatches */
-.color-swatches {
-    display: flex;
-    gap: 12px;
-    margin-top: 15px;
-}
-
-.swatch {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 2px solid transparent;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.swatch:hover {
-    border-color: #0071e3;
-}
-
-/* --------------------------------------------------------------------------------------------------------------------------------------------------------- */
-.sub-nav {
-    position: sticky;
-    top: 0;
-    /* Changed from 60px to 0 to keep it at the very top */
-    width: 100%;
-    height: 52px;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid #d2d2d7;
-    z-index: 100;
-    /* Higher z-index to stay on top */
-}
-
-/* Add clearance to the main container */
 .purchase-container {
     display: flex;
     max-width: 1000px;
     margin: 0 auto;
     padding-top: 80px;
-    /* This creates the gap so the text doesn't crash into the nav */
     gap: 50px;
 }
 
-/* Align the image properly */
+/* Gallery */
+
 .gallery {
     flex: 1;
 }
@@ -467,20 +361,19 @@ nav a.active {
 .gallery-wrapper {
     position: sticky;
     top: 100px;
-    /* Distance from top of screen when scrolling */
 }
 
 .gallery img {
     width: 100%;
     max-width: 450px;
-    /* Prevents the image from becoming too massive */
     display: block;
+    transition: opacity 0.3s ease-in-out;
 }
 
-/* 3. RIGHT SIDE: The Options Sidebar */
+/* Options Sidebar */
+
 .options-sidebar {
     flex: 0.8;
-    /* Takes up 40% of the width */
     text-align: left;
 }
 
@@ -505,14 +398,14 @@ nav a.active {
     font-weight: 400;
 }
 
-/* 4. CARDS: Making them look like Apple's buttons */
+/* Storage Cards */
+
 .storage-card {
     border: 1px solid #d2d2d7;
     border-radius: 12px;
     padding: 20px;
     display: flex;
     justify-content: space-between;
-    /* Pushes price to the right */
     align-items: center;
     margin-bottom: 12px;
     cursor: pointer;
@@ -530,40 +423,37 @@ nav a.active {
 
 .storage-card .price-tag {
     font-size: 12px;
-    color: #1d1d1f;
 }
 
-/* 5. COLOR SWATCHES */
+/* Color Swatches */
+
 .swatch-row {
     display: flex;
     gap: 12px;
 }
 
+.swatch,
 .swatch-circle {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    border: 1px solid #d2d2d7;
     cursor: pointer;
+    border: 1px solid #d2d2d7;
 }
 
-/* This adds the Apple-style selection ring */
+.swatch:hover {
+    border-color: #0071e3;
+}
+
 .selected-swatch {
     outline: 2px solid #0071e3;
     outline-offset: 2px;
 }
 
-/* Make the image transition feel smooth */
-.gallery img {
-    transition: opacity 0.3s ease-in-out;
-}
+/* ===================================================================================================== */
+/* ============================================== ANIMATIONS =========================================== */
+/* ===================================================================================================== */
 
-/* -----------------------------------------------------------------------iphone page------------------------------------------------------------------------ */
-/* --------------------------------------------------------------------------------------------------------------------------------------------------------- */
-
-/* ------------------------------------- Page fade out animation ---------------------------------------- */
-/* Starting state, hiding all the element and move down a bit */
-/* Using cubic-bezier to make the slice animation */
 .fade-on-scroll {
     opacity: 0;
     transform: translateY(40px);
@@ -574,13 +464,13 @@ nav a.active {
     will-change: opacity, transform;
 }
 
-/* End state, show all the element with fading up animation */
 .fade-on-scroll.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Let the product card pop out one by one */
+/* Stagger Effect */
+
 .product-card:nth-child(1) {
     transition-delay: 100ms;
 }
