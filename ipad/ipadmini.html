@@ -5,33 +5,88 @@
     <meta charset="UTF-8">
     <title>Buy iPad Pro - TechStore</title>
     <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Essential CSS for functionality and sizing */
+        .selected-swatch {
+            outline: 2px solid #0071e3;
+            outline-offset: 3px;
+        }
 
-    <script>
-        // Select the elements
-        const swatches = document.querySelectorAll('.swatch-circle');
-        const mainImg = document.querySelector('.gallery img');
-        const colorLabel = document.getElementById('color-name'); // Ensure your <span> has this ID
+        /* This fixes the size difference between your images */
+        .gallery-wrapper {
+            width: 100%;
+            flex: 1.5; 
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 50px;
+        }
 
-        swatches.forEach(swatch => {
-            swatch.addEventListener('click', function () {
-                // 1. Update the Image
-                const newImgPath = this.getAttribute('data-image');
-                if (newImgPath) {
-                    mainImg.src = newImgPath;
-                }
+        #main-product-img {
+            width: 100%;       
+            max-width: 650px;  
+            height: auto;     
+            object-fit: contain;
+            transition: opacity 0.3s ease;
+        }
 
-                // 2. Update the Text (the title attribute)
-                const newColorName = this.getAttribute('title');
-                if (colorLabel) {
-                    colorLabel.innerText = newColorName;
-                }
+        .storage-card {
+            border: 2px solid #d2d2d7;
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: border-color 0.3s;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between
+        }
 
-                // 3. Update the Visual "Lock" (Blue Ring)
-                swatches.forEach(s => s.classList.remove('selected-swatch'));
-                this.classList.add('selected-swatch');
-            });
-        });
-    </script>
+        .storage-card.selected-storage {
+            border-color: #0071e3;
+            background-color: rgba(0, 113, 227, 0.05);
+        }
+
+        .swatch-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 15px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+        }
+
+        .gray-text {
+            color: #6e6e73;
+        }
+
+        .purchase-container {
+            display: flex;
+            gap: 50px;
+            padding: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .options-sidebar {
+            flex: 1;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+
+            font-size: 14px;
+            font-weight: 500;
+            color: #0071e3;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+    
 </head>
 
 <header class="apple-header">
@@ -51,7 +106,8 @@
 <body class="product-page">
 
     <div class="sub-nav">
-        <div class="sub-nav-content">
+        <div class="sub-nav-content"
+        style="display: flex; justify-content: space-between; padding: 15px 50px; border-bottom: 1 px solid #d2d2d7;">
             <span class="product-name">iPad mini</span>
             <div class="sub-nav-right">
                 <span>From RM 1,599</span>
@@ -63,25 +119,25 @@
 
         <section class="gallery">
             <div class="gallery-wrapper">
-                <img src="../image/ipad/ipadmini.png" alt="iPad mini">
+                <img id="main-product-img" src="../image/ipad/ipadmini.png" alt="iPad mini">
             </div>
         </section>
 
         <section class="options-sidebar">
-            <h1 class="buy-title">Buy iPad mini</h1>
-            <div class="section-group">
-                <h3>Finish. <span class="gray-text">Natural Titanium</span></h3>
+            <h1 class="buy-title" style="font-size: 40px; margin-bottom: 30px;">Buy iPad mini</h1>
+            <div class="section-group" style="margin-bottom: 40px;">
+                <h3>Finish. <span class="gray-text">Select a color</span></h3>
                 <div class="swatch-row">
-                    <div class="swatch-circle" style="background: #535355;" data-image="../image/iphone/17pm-silver.png"
+                    <div class="swatch-circle" style="background: #535355;" data-image="../image/ipad/ipad-mini-space-gray.webp"
                         title="Space Gray"></div>
 
-                    <div class="swatch-circle" style="background: #B9C8D6;" data-image="../image/iphone/17pm-gold.png"
+                    <div class="swatch-circle" style="background: #B9C8D6;" data-image="../image/ipad/ipad-mini-blue.webp"
                         title="Blue"></div>
 
-                    <div class="swatch-circle" style="background: #B6B3C9;" data-image="../image/iphone/17pm-gold.png"
+                    <div class="swatch-circle" style="background: #B6B3C9;" data-image="../image/ipad/ipad-mini-purple.webp"
                         title="Purple"></div>
 
-                    <div class="swatch-circle" style="background: #F0EAD6;" data-image="../image/iphone/17pm-gold.png"
+                    <div class="swatch-circle" style="background: #F0EAD6;" data-image="../image/ipad/ipad-mini-starlight.webp"
                         title="Starlight"></div>
                 </div>
             </div>
@@ -103,9 +159,49 @@
                     </div>
                 </div>
             </div>
+
+            <a href="ipad.html" class="back-link">
+                ← Back to iPad
+            </a>
         </section>
     </main>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Color Logic
+            const swatches = document.querySelectorAll('.swatch-circle');
+            const mainImg = document.getElementById('main-product-img');
+            const colorLabel = document.getElementById('color-name');
+
+            swatches.forEach(swatch => {
+                swatch.addEventListener('click', function () {
+                    const newImg = this.getAttribute('data-image');
+                    if (newImg) {
+                        mainImg.style.opacity = '0'; // Quick fade out
+                        setTimeout(() => {
+                            mainImg.src = newImg;
+                            mainImg.style.opacity = '1'; // Fade in
+                        }, 150);
+                    }
+                    colorLabel.innerText = this.getAttribute('title');
+                    swatches.forEach(s => s.classList.remove('selected-swatch'));
+                    this.classList.add('selected-swatch');
+                });
+            });
+
+            // Storage Logic
+            const storageCards = document.querySelectorAll('.storage-card');
+            const navPrice = document.getElementById('nav-price');
+
+            storageCards.forEach(card => {
+                card.addEventListener('click', function () {
+                    navPrice.innerText = this.getAttribute('data-price');
+                    storageCards.forEach(c => c.classList.remove('selected-storage'));
+                    this.classList.add('selected-storage');
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
