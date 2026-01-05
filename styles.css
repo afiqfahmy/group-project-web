@@ -257,7 +257,8 @@ footer {
 /* Product Card (FINAL VERSION KEPT) */
 
 .product-card {
-    display: block;
+    display: flex;
+    flex-direction: column;
     background: #ffffff;
     border-radius: 18px;
     padding: 24px;
