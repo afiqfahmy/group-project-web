@@ -1,22 +1,9 @@
-// Fade-in on scroll
-function fade_on_scroll() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Force reflow so animation always plays
-                entry.target.getBoundingClientRect();
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.15 });
+main();
 
-    document.querySelectorAll('.fade-on-scroll')
-        .forEach(el => observer.observe(el));
+function main() {
+    fade_on_scroll();
+    fluid_scrolling_effect();
 }
-
-fade_on_scroll();
-
 
 // Page transition (fade out on link click)
 document.addEventListener('DOMContentLoaded', () => {
@@ -41,4 +28,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 });
+
+// Fade-in on scroll
+function fade_on_scroll() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Force reflow so animation always plays
+                entry.target.getBoundingClientRect();
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-on-scroll')
+        .forEach(el => observer.observe(el));
+}
+
+function fluid_scrolling_effect() {
+    // Lazy to import the outside js file for smooth for every single file
+    // so write auto load function at here
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js';
+
+    // make the smooth effect become smoother and fluid like
+    script.onload = () => {
+        const lenis = new Lenis();
+
+        function raf(time) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+        }
+
+        requestAnimationFrame(raf)
+        console.log('Lenis Smooth Scroll load !');
+    }
+    // Append script to documnet head
+    document.head.appendChild(script);
+    
+}
 
