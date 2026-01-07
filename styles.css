@@ -461,6 +461,19 @@ footer {
     height: 400px;
 }
 
+/* The page that let user previe the different color */
+.preview-color {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview-color img {
+    max-width: 350px;
+    max-height: 680px;
+}
+
 /* ===================================================================================================== */
 /* ============================================ PRODUCT DETAIL PAGE ==================================== */
 /* ===================================================================================================== */

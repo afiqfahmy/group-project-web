@@ -9,12 +9,14 @@
         /* Internal css to adjust the image size*/
         .compare-size-banner {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
 
         .compare-size-banner img {
             max-width: 50%;
+            height: 70%;
         }
 
         /* Rewrite the sequence for the fade out animation */
@@ -47,6 +49,7 @@
 
 
 <body class="product-intro-page">
+    <!-- Main banner for the intro page -->
     <section class="product-intro-picture fade-on-scroll">
         <h2 class="fade-on-scroll">Mac Book Air</h2>
         <h1 class="product-intro-title fade-on-scroll">Speed of lightness</h1>
@@ -61,6 +64,7 @@
             stunning Sky Blue color. With the perfectly portable MacBook Air, <br>
             you'll be ready to take on just about anything, anywhere.</h4>
     </section>
+    <!-- The details content page -->
     <section class="product-information fade-on-scroll">
         <p class="product-intro-subtitle">Design</p>
         <h1>Built to go places</h1>
@@ -72,12 +76,97 @@
                 has a durable recycled aluminum enclosure.
             </h4>
         </div>
-
+        <!-- Section compare the different size of mac book air -->
         <div class="compare-size-banner fade-on-scroll">
-            <img src="../image/mac/mca-compare-size.png" alt="Compare size">
+            <img src="../image/mac/mca-compare-size.png" alt="Compare size"><br>
+            <h4 class="product-desc">
+                <mark>Two perfectly portable sizes. </mark>The 13‑inch MacBook Air is the ultimate on-the-go laptop, and the <br>
+                15‑inch model gives you even more space on screen for multitasking.
+            </h4>
+        </div>
+        <!-- Section show the different color for mac book air -->
+        <div class="preview-color">
+            <img id="product-img" src="../image/mac/mca_preview_left_skyblue.png" alt="Product image">
+            <img id="product-img-2" src="../image/mac/mca_preview_right_skyblue.png" alt="Product image">
+            <div class="swatch-row" style="margin-top: 15px;">
+                <div class="swatch-circle" style="background: #C8D8E0; display: flex; flex-direction: column; text-align: center;"
+                    data-image="../image/mac/mca_preview_left_skyblue.png" 
+                    data-image-2="../image/mac/mca_preview_right_skyblue.png"
+                    title="Sky Blue">
+                    <p id="color-name" style="font-size: 8px; color: black; margin-top: 40px;">Sky Blue</p>
+                </div>
+                <div class="swatch-circle" style="background: #E3E4E6; display: flex; flex-direction: column; text-align: center;"
+                    data-image="../image/mac/mca_preview_left_silver.png" 
+                    data-image-2="../image/mac/mca_preview_right_silver.png"
+                    title="Silver">
+                    <p id="color-name" style="font-size: 8px; color: black; margin-top: 40px;">Silver</p>
+                </div>
+                <div class="swatch-circle" style="background: #F0E4D3; display: flex; flex-direction: column; text-align: center;"
+                    data-image="../image/mac/mca_preview_left_starlight.png" 
+                    data-image-2="../image/mac/mca_preview_right_starlight.png"
+                    title="Starlight">
+                    <p id="color-name" style="font-size: 8px; color: black; margin-top: 40px;">Starlight</p>
+                </div>
+                <div class="swatch-circle" style="background: #2E3642; display: flex; flex-direction: column; text-align: center;"
+                    data-image="../image/mac/mca_preview_left_midnight.png" 
+                    data-image-2="../image/mac/mca_preview_right_midnight.png"
+                    title="Midnight">
+                    <p id="color-name" style="font-size: 8px; color: black; margin-top: 40px;">Midnight</p>
+                </div>
+            </div>
         </div>
     </section>
-    <script src="../script.js"></script>
+    <script>
+        // Fade-in on scroll
+        function fade_on_scroll() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Force reflow so animation always plays
+                        entry.target.getBoundingClientRect();
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            document.querySelectorAll('.fade-on-scroll')
+                .forEach(el => observer.observe(el));
+        }
+
+        fade_on_scroll();
+
+        // Color logic
+        document.addEventListener('DOMContentLoaded', () => {
+
+        const swatches = document.querySelectorAll('.swatch-circle');
+        const mainImg = document.getElementById('product-img');
+        const mainImg2 = document.getElementById('product-img-2');
+        const colorLabel = document.getElementById('color-name');
+
+        swatches.forEach(swatch => {
+            swatch.addEventListener('click', function () {
+                const newImg = this.getAttribute('data-image');
+                const newImg2 = this.getAttribute('data-image-2');
+                if (newImg && newImg2) {
+                    mainImg.style.opacity = '0'; // Quick fade out
+                    mainImg2.style.opacity = '0';
+                    setTimeout(() => {
+                        mainImg.src = newImg;
+                        mainImg.style.opacity = '1'; // Fade in
+
+                        mainImg2.src = newImg2;
+                        mainImg2.style.opacity = '1';
+                    }, 150);
+                } 
+                
+                colorLabel.innerText = this.getAttribute('title');
+                swatches.forEach(s => s.classList.remove('selected-swatch'));
+                this.classList.add('selected-swatch');
+            });
+        });
+    });
+    </script>
 </body>
 
 </html>
