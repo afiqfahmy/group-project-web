@@ -16,6 +16,19 @@
         .compare-size-banner img {
             max-width: 50%;
         }
+
+        /* Rewrite the sequence for the fade out animation */
+        .produuct-intro-page:nth-child(1) {
+            transition-delay: 100ms;
+        }
+
+        .produuct-intro-page:nth-child(2) {
+            transition-delay: 200ms;
+        }
+
+        .produuct-intro-page:nth-child(3) {
+            transition-delay: 300ms;
+        }
     </style>
 </head>
 <header class="apple-header">
@@ -34,10 +47,10 @@
 
 
 <body class="product-intro-page">
-    <section class="product-intro-picture">
-        <h2>Mac Book Air</h2>
-        <h1 class="product-intro-title">Speed of lightness</h1>
-        <img src="../image/mac/mca-intro-picture.png" alt="MacBookPro picture">
+    <section class="product-intro-picture fade-on-scroll">
+        <h2 class="fade-on-scroll">Mac Book Air</h2>
+        <h1 class="product-intro-title fade-on-scroll">Speed of lightness</h1>
+        <img class="fade-on-scroll" src="../image/mac/mca-intro-picture.png" alt="MacBookPro picture">
         
         <!-- This description is only description that align in center -->
         <h4 class="product-desc" style="text-align: center;">MacBook Air is the world's most popular laptop for a reason. <br> 
@@ -48,7 +61,7 @@
             stunning Sky Blue color. With the perfectly portable MacBook Air, <br>
             you'll be ready to take on just about anything, anywhere.</h4>
     </section>
-    <section class="product-information">
+    <section class="product-information fade-on-scroll">
         <p class="product-intro-subtitle">Design</p>
         <h1>Built to go places</h1>
         <img src="../image/mac/design_hero.jpg" alt="Hero banner">
@@ -60,10 +73,11 @@
             </h4>
         </div>
 
-        <div class="compare-size-banner">
+        <div class="compare-size-banner fade-on-scroll">
             <img src="../image/mac/mca-compare-size.png" alt="Compare size">
         </div>
     </section>
+    <script src="../script.js"></script>
 </body>
 
 </html>
