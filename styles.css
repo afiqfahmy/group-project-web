@@ -50,7 +50,20 @@ body {
 }
 
 /* Logo */
+/* Force the title to be center */
 .logo {
+    position: absolute;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1d1d1f;
+    text-decoration: none;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Change the logo name of the home page */
+/* To prevent it been modified center also follow othres page */
+.home-page-logo {
     font-size: 20px;
     font-weight: 600;
     color: #1d1d1f;
@@ -62,6 +75,7 @@ body {
     display: flex;
     gap: 28px;
 }
+
 
 .main-nav a {
     font-size: 14px;

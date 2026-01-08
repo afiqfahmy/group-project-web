@@ -77,28 +77,3 @@ function fluid_scrolling_effect() {
     // Append script to documnet head
     document.head.appendChild(script);
 }
-
-// Testing the cart function in js
-function add_to_cart(product_id, product_name, quantity) {
-    // First check the id of the product, if the product got same id then update the quantity
-    // if not add new product
-    console.log("Item has been added !");
-    //if (cart.lenght == 0) {
-        cart.push("Product ID: " + product_id + "Product Name: " + product_name + "Quantity: " + quantity);
-    // if the id are the same
-        for (var i = 0; i < cart.length; i++) {
-            console.log(cart[i]);
-        }
-        
-    }
-
-
-// Function to reduce the quantity of the product
-function delete_from_cart_quantity(product_id, product_name, quantity) {
-
-}
-
-// Function delete all same type of product from the cart
-function delete_from_cart() {
-
-}
