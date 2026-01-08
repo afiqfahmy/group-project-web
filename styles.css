@@ -474,6 +474,32 @@ footer {
     max-height: 680px;
 }
 
+/* ---- The add to cart button customize */
+.add-to-cart-button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 0px;
+    background-color: #0071e3;
+    color: white;
+}
+
+.add-to-cart-button:hover {
+    background-color: #0066cc;
+}
+
+.add-to-cart-button-container {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: end;
+}
+
+.action-container {
+    display: flex;
+    flex-direction: column;
+}
+
 /* ===================================================================================================== */
 /* ============================================ PRODUCT DETAIL PAGE ==================================== */
 /* ===================================================================================================== */
