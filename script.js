@@ -5,14 +5,15 @@ main();
 // ip17pm   : 001
 // ipadair  : 002
 // mac air  : 003
-var cart = [];
+
+// var cart = [];
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 function main() {
     fade_on_scroll();
     fluid_scrolling_effect();
 
-    // Initialize the cart
-    cart = [];
+    // Prevent windows to be refresh
 }
 
 // Page transition (fade out on link click)
@@ -76,4 +77,66 @@ function fluid_scrolling_effect() {
     }
     // Append script to documnet head
     document.head.appendChild(script);
+}
+
+function add_to_cart(product_id, product_name, qty, price) {
+    // Find the same ID from the dictionarry
+    let existingItem = cart.find(item => item.id === product_id);
+
+    if (existingItem) {
+        console.log("Same item, increasing quantity.");
+        
+        existingItem.quantity = parseInt(existingItem.quantity) + parseInt(qty);
+        
+    } else {
+        console.log("New item, adding to list.");
+        
+        cart.push({
+            id: product_id,
+            name: product_name,
+            quantity: parseInt(qty), // Save as Number immediately to avoid bugs later
+            price: parseFloat(price)
+        });
+    }
+
+    console.log("Current Cart:", cart);
+
+    // Save to storage
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// Display the cart
+function updateCartDisplay() {
+    const cartContainer = document.getElementsByClassName('cart-items-container');
+    const totalElement = document.getElementsByClassName('cart-tool');
+
+    if (!cartContainer) return;
+    
+    cartContainer.innerHTML = '';
+
+    let totalPrice = 0;
+
+    cart.forEach(item => {
+        let itemTotal = item.quantity * (item.price || 0);
+        totalPrice += itemTotal;
+
+        const itemHTML = `
+            <div class="cart-item">
+                <div class="item-info">
+                    <h4>${item.name}</h4>
+                    <p>Qty: ${item.quantity}</p>
+                </div>
+                <div class="item-actions">
+                    <button onclick="removeFromCart('${item.id}')">Remove</button>
+                </div>
+            </div>
+        `;
+
+        cartContainer.innerHTML += itemHTML;
+        console.log("Update cart")
+    });
+
+    if (totalElement) {
+        totalElement.innerText = "$" + totalPrice.toLocaleString();
+    }
 }
