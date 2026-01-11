@@ -5,17 +5,18 @@
     <meta charset="UTF-8">
     <title>Buy iPad Pro - TechStore</title>
     <link rel="stylesheet" href="../styles.css">
+    <script src="../script.js" defer></script>
+
     <style>
-        /* Essential CSS for functionality and sizing */
+        /* --- Essential CSS --- */
         .selected-swatch {
             outline: 2px solid #0071e3;
             outline-offset: 3px;
         }
 
-        /* This fixes the size difference between your images */
         .gallery-wrapper {
             width: 100%;
-            flex: 1.5; 
+            flex: 1.5;
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -23,9 +24,9 @@
         }
 
         #main-product-img {
-            width: 100%;       
-            max-width: 650px;  
-            height: auto;     
+            width: 100%;
+            max-width: 650px;
+            height: auto;
             object-fit: contain;
             transition: opacity 0.3s ease;
         }
@@ -38,7 +39,7 @@
             transition: border-color 0.3s;
             margin-bottom: 12px;
             display: flex;
-            justify-content: space-between
+            justify-content: space-between;
         }
 
         .storage-card.selected-storage {
@@ -75,7 +76,6 @@
         .back-link {
             display: inline-block;
             margin-bottom: 20px;
-
             font-size: 14px;
             font-weight: 500;
             color: #0071e3;
@@ -85,87 +85,112 @@
         .back-link:hover {
             text-decoration: underline;
         }
+
+        .add-to-cart-btn {
+            margin-top: 30px;
+            padding: 15px 25px;
+            font-size: 16px;
+            border-radius: 12px;
+            border: none;
+            background: #0071e3;
+            color: #fff;
+            cursor: pointer;
+        }
     </style>
-
 </head>
-
-<header class="apple-header">
-    <div class="header-inner">
-        <a href="index.html" class="logo">TechStore</a>
-
-        <nav class="main-nav">
-            <a href="../main.html">Store</a>
-            <a href="../iphone/iphone.html">iPhone</a>
-            <a href="../ipad/ipad.html" class="active">iPad</a>
-            <a href="../mac/mac.html">Mac</a>
-            <a href="../support.html">Support</a>
-        </nav>
-    </div>
-</header>
 
 <body class="product-page">
 
+    <!-- HEADER -->
+    <header class="apple-header">
+        <div class="header-inner">
+            <a href="ipad.html" class="back-link">← Back to iPad</a>
+            <a href="../index.html" class="logo">TechStore</a>
+
+            <nav class="main-nav">
+                <a href="../main.html">Store</a>
+                <a href="../iphone/iphone.html">iPhone</a>
+                <a href="../ipad/ipad.html" class="active">iPad</a>
+                <a href="../mac/mac.html">Mac</a>
+                <a href="../support.html">Support</a>
+            </nav>
+
+            <div class="cart">
+                <a href="../cart.html">🛒 <span id="cart-count">0</span></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- SUB-NAV WITH PRICE -->
     <div class="sub-nav">
         <div class="sub-nav-content"
-        style="display: flex; justify-content: space-between; padding: 15px 50px; border-bottom: 1 px solid #d2d2d7;">
-            <span class="product-name">iPad Pro</span>
-            <div class="sub-nav-right">
-                <span>From RM 4,499</span>
-            </div>
+            style="display: flex; justify-content: space-between; padding: 15px 50px; border-bottom: 1px solid #d2d2d7;">
+            <span class="product-name" style="font-weight:bold;">iPad Pro</span>
+            <span id="nav-price">From RM 4,499</span>
         </div>
     </div>
 
+    <!-- MAIN PURCHASE AREA -->
     <main class="purchase-container">
 
+        <!-- GALLERY -->
         <section class="gallery">
             <div class="gallery-wrapper">
                 <img id="main-product-img" src="../image/ipad/ipadpro.jpg" alt="iPad Pro">
             </div>
         </section>
 
+        <!-- OPTIONS -->
         <section class="options-sidebar">
-            <h1 class="buy-title" style="font-size: 40px; margin-bottom: 30px;">Buy iPad Pro</h1>
-            <div class="section-group" style="margin-bottom: 40px;">
+            <h1 style="font-size: 40px; margin-bottom: 30px;">Buy iPad Pro</h1>
+
+            <!-- COLOR OPTIONS -->
+            <div style="margin-bottom: 40px;">
                 <h3>Finish. <span id="color-name" class="gray-text">Select a color</span></h3>
-                <div class="swatch-row" style="margin-top: 15px">
-                    <div class="swatch-circle" style="background: #C0C0C0;" data-image="../image/ipad/ipad-pro-finish-silver.webp"
-                        title="Silver"></div>
-                    <div class="swatch-circle" style="background: #1D1D1F;" data-image="../image/ipad/ipad-pro-finish-spaceblack.webp"
-                        title="Space Black"></div>
+                <div style="margin-top: 15px;">
+                    <div class="swatch-circle" style="background:#C0C0C0;"
+                        data-image="../image/ipad/ipad-pro-finish-silver.webp" title="Silver"></div>
+                    <div class="swatch-circle" style="background:#1D1D1F;"
+                        data-image="../image/ipad/ipad-pro-finish-spaceblack.webp" title="Space Black"></div>
                 </div>
             </div>
 
-            <div class="section-group">
+            <!-- STORAGE OPTIONS -->
+            <div>
                 <h3>Storage. <span class="gray-text">How much space do you need?</span></h3>
-                <div class="storage-list" margin-top="15px">
-                    <div class="storage-card">
+                <div style="margin-top: 15px;">
+                    <div class="storage-card" data-price="RM 4,499">
                         <span class="size">256GB</span>
-                        <span class="price-tag">From RM 4,499</span>
+                        <span>From RM 4,499</span>
                     </div>
-                    <div class="storage-card">
+                    <div class="storage-card" data-price="RM 5,399">
                         <span class="size">512GB</span>
-                        <span class="price-tag">From RM 5,399</span>
+                        <span>From RM 5,399</span>
                     </div>
-                    <div class="storage-card">
+                    <div class="storage-card" data-price="RM 7,199">
                         <span class="size">1TB</span>
-                        <span class="price-tag">From RM 7,199</span>
+                        <span>From RM 7,199</span>
                     </div>
-                    <div class="storage-card">
+                    <div class="storage-card" data-price="RM 8,999">
                         <span class="size">2TB</span>
-                        <span class="price-tag">From RM 8,999</span>
+                        <span>From RM 8,999</span>
                     </div>
                 </div>
+
+                <!-- ADD TO CART BUTTON -->
+                <button class="add-to-cart-btn" data-name="iPad Pro" data-price="4499"
+                    data-img="../image/ipad/ipadpro.jpg">
+                    Add to Cart
+                </button>
             </div>
 
-            <a href="ipad.html" class="back-link">
-                ← Back to iPad
-            </a>
         </section>
     </main>
 
+    <!-- SCRIPT FOR SWATCH & STORAGE LOGIC -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Color Logic
+            // Color swatch logic
             const swatches = document.querySelectorAll('.swatch-circle');
             const mainImg = document.getElementById('main-product-img');
             const colorLabel = document.getElementById('color-name');
@@ -174,31 +199,57 @@
                 swatch.addEventListener('click', function () {
                     const newImg = this.getAttribute('data-image');
                     if (newImg) {
-                        mainImg.style.opacity = '0'; // Quick fade out
+                        mainImg.style.opacity = '0';
                         setTimeout(() => {
                             mainImg.src = newImg;
-                            mainImg.style.opacity = '1'; // Fade in
+                            mainImg.style.opacity = '1';
                         }, 150);
                     }
-                    colorLabel.innerText = this.getAttribute('title');
+                    colorLabel.textContent = this.title;
                     swatches.forEach(s => s.classList.remove('selected-swatch'));
                     this.classList.add('selected-swatch');
                 });
             });
 
-            // Storage Logic
+            // Storage selection logic
             const storageCards = document.querySelectorAll('.storage-card');
             const navPrice = document.getElementById('nav-price');
 
             storageCards.forEach(card => {
                 card.addEventListener('click', function () {
-                    navPrice.innerText = this.getAttribute('data-price');
+                    navPrice.textContent = this.dataset.price;
                     storageCards.forEach(c => c.classList.remove('selected-storage'));
                     this.classList.add('selected-storage');
                 });
             });
+
+            // Add to Cart Logic
+            const addToCartBtn = document.querySelector('.add-to-cart-btn');
+
+            addToCartBtn.addEventListener('click', () => {
+                const cartCount = document.getElementById('cart-count');
+                const productName = addToCartBtn.dataset.name;
+
+                // Get selected storage
+                const selectedStorage = document.querySelector('.storage-card.selected-storage');
+                let price, storage;
+                if (selectedStorage) {
+                    price = selectedStorage.dataset.price;
+                    storage = selectedStorage.querySelector('.size').textContent;
+                } else {
+                    // Default if none selected
+                    price = addToCartBtn.dataset.price;
+                    storage = '';
+                }
+
+                cartCount.textContent = parseInt(cartCount.textContent) + 1;
+
+                alert(`${productName} ${storage} added to cart! Price: ${price}`);
+            });
+
         });
     </script>
+
 </body>
 
 </html>

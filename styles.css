@@ -108,6 +108,27 @@ body {
     justify-content: space-between;
 }
 
+.add-to-cart-btn {
+    width: 100%;
+    padding: 14px 20px;
+    background-color: #0071e3;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #005bb5;
+}
+
+.add-to-cart-btn:active {
+    transform: scale(0.98);
+}
+
 
 
 /* ===================================================================================================== */

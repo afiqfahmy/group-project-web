@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Buy iPhone 17 Pro - TechStore</title>
     <link rel="stylesheet" href="../styles.css">
+    <script src="../script.js" defer></script>
 
     <style>
         .selected-swatch {
@@ -88,8 +89,13 @@
 
 <body class="product-page">
 
+    <!-- HEADER -->
     <header class="apple-header">
         <div class="header-inner">
+
+            <!-- ADDED (same as ip17pm) -->
+            <a href="iphone.html" class="back-link">← Back to iPhone</a>
+
             <a href="index.html" class="logo">TechStore</a>
 
             <nav class="main-nav">
@@ -99,16 +105,21 @@
                 <a href="../mac/mac.html">Mac</a>
                 <a href="../support.html">Support</a>
             </nav>
+
+            <div class="cart">
+                <a href="../cart.html">🛒 <span id="cart-count">0</span></a>
+            </div>
         </div>
     </header>
 
+    <!-- SUB NAV -->
     <div class="sub-nav">
         <div class="sub-nav-content"
             style="display:flex; justify-content:space-between; padding:15px 50px; border-bottom:1px solid #d2d2d7;">
             <span class="product-name" style="font-weight:bold;">iPhone 17 Pro</span>
-            <div class="sub-nav-right">
-                <span id="nav-price">From RM 5,499</span>
-            </div>
+
+            <!-- MATCHED to ip17pm -->
+            <span id="nav-price">From RM 5,499</span>
         </div>
     </div>
 
@@ -116,19 +127,20 @@
 
         <section class="gallery">
             <div class="gallery-wrapper">
-                <img id="main-product-img" src="../image/iphone/iPhone17PM.png" alt="iPhone 17 Pro Max">
+                <img id="main-product-img" src="../image/iphone/iPhone17PM.png" alt="iPhone 17 Pro">
             </div>
         </section>
 
         <section class="options-sidebar">
-            <h1 class="buy-title" style="font-size:40px; margin-bottom:30px;">
+            <h1 style="font-size:40px; margin-bottom:30px;">
                 Buy iPhone 17 Pro
             </h1>
 
-            <div class="section-group" style="margin-bottom:40px;">
+            <!-- COLOR -->
+            <div style="margin-bottom:40px;">
                 <h3>Finish. <span id="color-name" class="gray-text">Select a color</span></h3>
 
-                <div class="swatch-row" style="margin-top:15px;">
+                <div style="margin-top:15px;">
                     <div class="swatch-circle" style="background:#C0C0C0;"
                         data-image="../image/iphone/iPhone_17_Pro_Max_Silver-removebg-preview.png" title="Silver"></div>
 
@@ -142,10 +154,11 @@
                 </div>
             </div>
 
-            <div class="section-group">
+            <!-- STORAGE -->
+            <div>
                 <h3>Storage. <span class="gray-text">How much space do you need?</span></h3>
 
-                <div class="storage-list" style="margin-top:15px;">
+                <div style="margin-top:15px;">
                     <div class="storage-card" data-price="RM 5,499">
                         <span class="size">256GB</span>
                         <span class="price-tag">RM 5,499</span>
@@ -161,22 +174,29 @@
                         <span class="price-tag">RM 7,499</span>
                     </div>
                 </div>
+
+                <!-- ADDED (same as ip17pm) -->
+                <button class="add-to-cart-btn" data-name="iPhone 17 Pro" data-price="5499"
+                    data-img="../image/iphone/iPhone17PM.png"
+                    style="margin-top:30px;padding:15px 25px;font-size:16px;border-radius:12px;border:none;background:#0071e3;color:#fff;">
+                    Add to Cart
+                </button>
             </div>
 
-            <a href="iphone.html" class="back-link">← Back to iPhone</a>
         </section>
-
     </main>
 
+    <!-- LOGIC (matched) -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+
             const swatches = document.querySelectorAll('.swatch-circle');
             const mainImg = document.getElementById('main-product-img');
             const colorLabel = document.getElementById('color-name');
 
             swatches.forEach(swatch => {
                 swatch.addEventListener('click', function () {
-                    const newImg = this.getAttribute('data-image');
+                    const newImg = this.dataset.image;
                     if (newImg) {
                         mainImg.style.opacity = '0';
                         setTimeout(() => {
@@ -184,7 +204,7 @@
                             mainImg.style.opacity = '1';
                         }, 150);
                     }
-                    colorLabel.innerText = this.getAttribute('title');
+                    colorLabel.textContent = this.title;
                     swatches.forEach(s => s.classList.remove('selected-swatch'));
                     this.classList.add('selected-swatch');
                 });
@@ -195,7 +215,7 @@
 
             storageCards.forEach(card => {
                 card.addEventListener('click', function () {
-                    navPrice.innerText = this.getAttribute('data-price');
+                    navPrice.textContent = this.dataset.price;
                     storageCards.forEach(c => c.classList.remove('selected-storage'));
                     this.classList.add('selected-storage');
                 });
