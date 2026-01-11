@@ -1,12 +1,11 @@
 <<<<<<< HEAD
-// =====================
 // Fade-in on scroll
-// =====================
 function fade_on_scroll() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.getBoundingClientRect(); // force reflow
+                // Force reflow so animation always plays
+                entry.target.getBoundingClientRect();
                 entry.target.classList.add('is-visible');
                 observer.unobserve(entry.target);
             }
@@ -36,22 +35,16 @@ function main() {
 fade_on_scroll();
 
 
-// =====================
-// DOM READY
-// =====================
+// Page transition (fade out on link click)
 =======
 // Page transition (fade out on link click)
 >>>>>>> 4e6be9d5ee0fc84a1712a8e54f7cb3cead0d19a2
 document.addEventListener('DOMContentLoaded', () => {
-
-    /* =====================
-       PAGE TRANSITION
-    ====================== */
     document.querySelectorAll('a').forEach(link => {
+
         link.addEventListener('click', e => {
 
             if (
-                link.closest('.cart') ||      // ✅ allow cart
                 link.target === '_blank' ||
                 link.href.startsWith('mailto:') ||
                 link.href.startsWith('tel:') ||
@@ -65,7 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.location.href = link.href;
             }, 250);
         });
+
     });
+});
 
 
 
