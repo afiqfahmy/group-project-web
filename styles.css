@@ -50,7 +50,20 @@ body {
 }
 
 /* Logo */
+/* Force the title to be center */
 .logo {
+    position: absolute;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1d1d1f;
+    text-decoration: none;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Change the logo name of the home page */
+/* To prevent it been modified center also follow othres page */
+.home-page-logo {
     font-size: 20px;
     font-weight: 600;
     color: #1d1d1f;
@@ -62,6 +75,7 @@ body {
     display: flex;
     gap: 28px;
 }
+
 
 .main-nav a {
     font-size: 14px;
@@ -278,7 +292,8 @@ footer {
 /* Product Card (FINAL VERSION KEPT) */
 
 .product-card {
-    display: block;
+    display: flex;
+    flex-direction: column;
     background: #ffffff;
     border-radius: 18px;
     padding: 24px;
@@ -300,7 +315,6 @@ footer {
     /* subtle Apple gray */
 }
 
-
 .product-card h2 {
     font-size: 24px;
     margin-bottom: 8px;
@@ -320,17 +334,6 @@ footer {
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 10px;
-}
-
-.product-card button {
-    background: #0071e3;
-    color: white;
-    padding: 12px 28px;
-    border-radius: 999px;
-    border-width: 0;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: auto;
 }
 
 /* Accessibility */
@@ -366,6 +369,7 @@ footer {
 
 .learn-more-btn {
     display: inline-flex;
+    flex-direction: column;
     /* key for perfect centering */
     align-items: center;
     /* vertical center */
@@ -395,6 +399,142 @@ footer {
     color: #ffffff;
 }
 
+/* ===================================================================================================== */
+/* ============================================ PRODUCT INTRODUCTION PAGE ==================================== */
+/* ===================================================================================================== */
+.product-intro-page mark {
+    background: transparent;
+}
+
+.product-intro-picture {
+    /* creating apple - like gradient background color*/
+    background-image: linear-gradient(to bottom, #D7EBF6, #FFFFFF);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    text-align: center;
+}
+
+.product-intro-picture h2 {
+    margin-top: 50px;
+}
+
+/* Create the gradient effect for the title */
+.product-intro-title {
+    margin-top: 20px;
+    font-size: 48px;
+
+    /* The linear-gradient function only work with the background-image property */
+    background-image: linear-gradient(to right, #032741, #5482A7);
+    
+    /* Clip the text with the image */
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    /* Set the color of the text to transparent to show the background gradient color */
+    color: transparent;
+    font-weight: bold;
+}
+
+.product-intro-subtitle {
+    padding-left: 20px;
+}
+
+.product-intro-picture img {
+    margin-top: 50px;
+    width: 400px;
+    height: 300px;
+}
+
+/* Description text for the product */
+.product-desc {
+    margin-top: 20px;
+    color: #98989C;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+/* Create a container for the product description to let the text seem at center*/
+.product-desc-holder {
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product-intro-subtitle {
+    font-size: 12px;
+    color: black;
+    font-weight: bold;
+    padding-left: 20%;
+    padding-top: 5%;
+}
+
+/* Redundent code for the subtitle */
+
+.product-information h1 {
+    padding-top: 10px;
+    padding-left: 20%;
+    padding-bottom: 20px;
+    font-size: 48px;
+
+    /* The linear-gradient function only work with the background-image property */
+    background-image: linear-gradient(to right, #032741, #5482A7);
+    
+    /* Clip the text with the image */
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    /* Set the color of the text to transparent to show the background gradient color */
+    color: transparent;
+    font-weight: bold;
+}
+
+.product-information img {
+    width: 100%;
+    height: 400px;
+}
+
+/* The page that let user previe the different color */
+.preview-color {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.preview-color img {
+    max-width: 350px;
+    max-height: 680px;
+}
+
+/* ---- The add to cart button customize */
+.add-to-cart-button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 0px;
+    background-color: #0071e3;
+    color: white;
+}
+
+.add-to-cart-button:hover {
+    background-color: #0066cc;
+}
+
+.add-to-cart-button-container {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: end;
+}
+
+.action-container {
+    display: flex;
+    flex-direction: column;
+}
 
 /* ===================================================================================================== */
 /* ============================================ PRODUCT DETAIL PAGE ==================================== */
@@ -546,16 +686,24 @@ footer {
 
 .fade-on-scroll {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(50px);
+    filter: blur(1);
+
+    /* will-change tell the browser to prepare the gpu for render*/
+    /* prevent stutter */
+    will-change: opacity, transform, filter;
+
     transition:
-        opacity 0.6s ease,
-        transform 0.6s ease;
+        opacity 1s cubic-bezier(0.25, 1, 0.5, 1),
+        transform 1s cubic-bezier(0.25, 1, 0.5, 1),
+        filter 1s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* Visible */
 .fade-on-scroll.is-visible {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
 }
 
 /* Page enter */
@@ -578,7 +726,6 @@ body.page-exit {
 
 
 /* Stagger Effect */
-
 .product-card:nth-child(1) {
     transition-delay: 100ms;
 }
