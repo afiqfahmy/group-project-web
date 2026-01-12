@@ -95,9 +95,49 @@
         </main>
     </section>
 
+<<<<<<< HEAD
     <footer>
         <p>© 2025 TechStore. All rights reserved.</p>
     </footer>
+=======
+    <!-- Inline UI Logic -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const swatches = document.querySelectorAll('.swatch-circle');
+            const mainImg = document.getElementById('main-product-img');
+            const colorLabel = document.getElementById('color-name');
+
+            swatches.forEach(swatch => {
+                swatch.addEventListener('click', function () {
+                    const newImg = this.getAttribute('data-image');
+                    if (newImg) {
+                        mainImg.style.opacity = '0';
+                        setTimeout(() => {
+                            mainImg.src = newImg;
+                            mainImg.style.opacity = '1';
+                        }, 150);
+                    }
+                    colorLabel.textContent = this.title;
+                    swatches.forEach(s => s.classList.remove('selected-swatch'));
+                    this.classList.add('selected-swatch');
+                });
+            });
+
+            const storageCards = document.querySelectorAll('.storage-card');
+            const navPrice = document.getElementById('nav-price');
+
+            storageCards.forEach(card => {
+                card.addEventListener('click', function () {
+                    navPrice.textContent = this.dataset.price;
+                    storageCards.forEach(c => c.classList.remove('selected-storage'));
+                    this.classList.add('selected-storage');
+                });
+            });
+        });
+    </script>
+    <script src="../script.js"></script>
+>>>>>>> 4d96428588279fc8f9a3aa90e2bc61d13e60505b
 
 </body>
 

@@ -119,9 +119,47 @@ document.addEventListener('DOMContentLoaded', () => {
             updateCartCount();
 
             alert(`${product.name} added to cart 🛒`);
+            // alert(`${product.name} added to cart! 🛒`);
+            showNotification(`${product.name}`);
         });
     }
 
+    // Creating apple like notification style
+    function showNotification(productName) {
+        let myNotifElement = document.getElementById('custom-alert');
+
+        if (!document.body) {
+            console.error("Error: The page is not fully loaded yet.");
+            return;
+        }
+
+        if (!myNotifElement) {
+            console.log("Creating new notification box...");
+            myNotifElement = document.createElement('div');
+            myNotifElement.id = 'custom-alert';
+            myNotifElement.className = 'custom-alert';
+            document.body.appendChild(myNotifElement);
+        }
+
+        console.log("Notification Element:", myNotifElement);
+
+        myNotifElement.innerHTML = `
+            <div class="alert-content">
+                <span class="alert-icon">✓</span>
+                <span style="font-family: -apple-system, sans-serif; font-size: 14px; color: #1d1d1f;">
+                    ${productName} added to cart 🛒 !
+                </span>
+            </div>
+        `;
+        
+        myNotifElement.classList.remove('show');
+        void myNotifElement.offsetWidth; // Force restart animation
+        myNotifElement.classList.add('show');
+        
+        setTimeout(() => {
+            myNotifElement.classList.remove('show');
+        }, 3000);
+    }
 
     /* 7. BUTTON ENABLE LOGIC */
     function checkSelections() {
