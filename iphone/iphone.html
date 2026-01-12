@@ -6,46 +6,70 @@
     <title>iPhone | TechStore</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
-    <script src="../script.js" defer></script>
+    <script src="script.js" defer></script>
+
 </head>
 
 <body>
 
-    <header class="apple-header">
-        <div class="header-inner">
-            <a href="../main.html" class="back-link">← Back to Store</a>
-            <a href="../index.html" class="logo">TechStore</a>
-            <nav class="main-nav">
-                <a href="../main.html">Store</a>
-                <a href="iphone.html" class="active">iPhone</a>
-                <a href="../ipad/ipad.html">iPad</a>
-                <a href="../mac/mac.html">Mac</a>
-                <a href="../support.html">Support</a>
+    <header class="apple-header"
+        style="position: sticky; top: 0; background: #fff; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); padding: 15px 50px;">
+        <div class="header-inner"
+            style="display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+
+            <!-- Back to Store -->
+            <a href="../main.html" class="back-link"
+                style="font-size: 14px; font-weight: 500; color: #0071e3; text-decoration: none; margin-right: 20px;">
+                ← Back to Store
+            </a>
+
+            <!-- Logo -->
+            <a href="../index.html" class="logo"
+                style="font-size: 24px; font-weight: bold; color: #1d1d1f; text-decoration: none;">
+                TechStore
+            </a>
+
+            <!-- Navigation -->
+            <nav class="main-nav" style="display: flex; gap: 25px; margin-left: auto;">
+                <a href="../main.html" style="text-decoration: none; color: #1d1d1f; font-weight: 500;">Store</a>
+                <a href="iphone.html" class="active"
+                    style="text-decoration: none; color: #0071e3; font-weight: 500;">iPhone</a>
+                <a href="../ipad/ipad.html" style="text-decoration: none; color: #1d1d1f; font-weight: 500;">iPad</a>
+                <a href="../mac/mac.html" style="text-decoration: none; color: #1d1d1f; font-weight: 500;">Mac</a>
+                <a href="../support.html" style="text-decoration: none; color: #1d1d1f; font-weight: 500;">Support</a>
             </nav>
-            <div class="cart">
-                <a href="../cart.html">🛒 <span id="cart-count">0</span></a>
+
+            <!-- Cart -->
+            <div class="cart" style="margin-left: 20px;">
+                <a href="../cart.html" style="text-decoration: none; font-size: 18px; color: #1d1d1f;">🛒 <span
+                        id="cart-count" style="font-weight: bold;">0</span></a>
             </div>
+
         </div>
     </header>
 
-    <section class="product-hero-section">
-        <h1 class="fade-on-scroll">iPhone</h1>
-        <p class="fade-on-scroll gray-text">Explore the iPhone line-up.</p>
-    </section>
-
-    <main class="product-grid-container">
-        <section class="product-grid">
 
 
 
     <!-- PAGE TITLE -->
-    <section class="product-hero fade-on-scroll">
+    <section class="product-hero">
         <h1>iPhone</h1>
         <p>Explore the iPhone line-up.</p>
     </section>
 
     <!-- IPHONE MODELS -->
-    <section class="product-grid fade-on-scroll">
+    <section class="product-grid">
+
+
+
+        <!-- PAGE TITLE -->
+        <section class="product-hero fade-on-scroll">
+            <h1>iPhone</h1>
+            <p>Explore the iPhone line-up.</p>
+        </section>
+
+        <!-- IPHONE MODELS -->
+        <section class="product-grid fade-on-scroll">
 
             <div class="product-card fade-on-scroll">
                 <div class="product-image-container">
@@ -60,90 +84,94 @@
                 </div>
             </div>
 
-            <div class="product-card fade-on-scroll">
-                <div class="product-image-container">
-                    <img src="../image/iphone/iPhone17PM.png" alt="iPhone 17 Pro" class="product-img">
-                </div>
-                <div class="product-info">
-                    <h2 class="product-name">iPhone 17 Pro</h2>
-                    <p class="chip-spec">A19 Pro chip</p>
-                    <p class="product-desc">Powerful. Colorful. Pro in every way.</p>
+            <a href="ip17pm.html" class="learn-more-btn">Learn More</a>
+            </div>
+
+            <div class="product-card">
+                <img src="../image/iphone/iPhone17PM.png" alt="iPhone 17 Pro" class="product-img">
+
+                <div class="card-content">
+                    <h2>iPhone 17 Pro</h2>
+                    <h3 class="chip-spec">A19 Pro chip</h3>
+                    <p>Powerful. Colorful.</p>
                     <span class="price">From RM 4,399</span>
+                </div>
+
+                <a href="ip17p.html" class="learn-more-btn">Learn More</a>
+            </div>
+
+            <div class="product-card">
+                <img src="../image/iphone/iphone-17-air.png" alt="iPhone Air" class="product-img">
+
+                <div class="card-content">
+                    <h2>iPhone Air</h2>
+                    <h3 class="chip-spec">A19 Pro chip</h3>
+                    <p>As amazing as ever.</p>
+                    <span class="price">From RM 3,999</span>
+                </div>
+
+                <div class="product-card fade-on-scroll">
+                    <div class="product-image-container">
+                        <img src="../image/iphone/iPhone_17.png" alt="iPhone 17" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h2 class="product-name">iPhone 17</h2>
+                        <p class="chip-spec">A19 Pro chip</p>
+                        <p class="product-desc">Serious power. Serious value.</p>
+                        <span class="price">From RM 2,499</span>
+                        <a href="ip17.html" class="learn-more-btn">Learn More</a>
+                    </div>
+                    <a href="ip17pm.html" class="learn-more-btn">Learn More</a>
+                </div>
+
+                <div class="product-card fade-on-scroll">
+                    <img src="../image/iphone/iPhone17PM.png" alt="iPhone 17 Pro" class="product-img">
+
+                    <div class="card-content">
+                        <h2>iPhone 17 Pro</h2>
+                        <h3 class="chip-spec">A19 Pro chip</h3>
+                        <p>Powerful. Colorful.</p>
+                        <span class="price">From RM 4,399</span>
+                    </div>
+
                     <a href="ip17p.html" class="learn-more-btn">Learn More</a>
                 </div>
-            </div>
 
-            <div class="product-card fade-on-scroll">
-                <div class="product-image-container">
+                <div class="product-card fade-on-scroll">
                     <img src="../image/iphone/iphone-17-air.png" alt="iPhone Air" class="product-img">
-                </div>
-                <div class="product-info">
-                    <h2 class="product-name">iPhone Air</h2>
-                    <p class="chip-spec">A19 Pro chip</p>
-                    <p class="product-desc">As amazing as ever. impossibly thin.</p>
-                    <span class="price">From RM 3,999</span>
+
+                    <div class="card-content">
+                        <h2>iPhone Air</h2>
+                        <h3 class="chip-spec">A19 Pro chip</h3>
+                        <p>As amazing as ever.</p>
+                        <span class="price">From RM 3,999</span>
+                    </div>
+
                     <a href="ip17a.html" class="learn-more-btn">Learn More</a>
                 </div>
-            </div>
 
-            <div class="product-card fade-on-scroll">
-                <div class="product-image-container">
+
+                <div class="product-card fade-on-scroll">
                     <img src="../image/iphone/iPhone_17.png" alt="iPhone 17" class="product-img">
-                </div>
-                <div class="product-info">
-                    <h2 class="product-name">iPhone 17</h2>
-                    <p class="chip-spec">A19 Pro chip</p>
-                    <p class="product-desc">Serious power. Serious value.</p>
-                    <span class="price">From RM 2,499</span>
+
+                    <div class="card-content">
+                        <h2>iPhone 17</h2>
+                        <h3 class="chip-spec">A19 Pro chip</h3>
+                        <p>Serious power. Serious value.</p>
+                        <span class="price">From RM 2,499</span>
+                    </div>
+
                     <a href="ip17.html" class="learn-more-btn">Learn More</a>
                 </div>
-            <a href="ip17pm.html" class="learn-more-btn">Learn More</a>
-        </div>
-
-        <div class="product-card fade-on-scroll">
-            <img src="../image/iphone/iPhone17PM.png" alt="iPhone 17 Pro" class="product-img">
-
-            <div class="card-content">
-                <h2>iPhone 17 Pro</h2>
-                <h3 class="chip-spec">A19 Pro chip</h3>
-                <p>Powerful. Colorful.</p>
-                <span class="price">From RM 4,399</span>
-            </div>
-
-            <a href="ip17p.html" class="learn-more-btn">Learn More</a>
-        </div>
-
-        <div class="product-card fade-on-scroll">
-            <img src="../image/iphone/iphone-17-air.png" alt="iPhone Air" class="product-img">
-
-            <div class="card-content">
-                <h2>iPhone Air</h2>
-                <h3 class="chip-spec">A19 Pro chip</h3>
-                <p>As amazing as ever.</p>
-                <span class="price">From RM 3,999</span>
-            </div>
-
-            <a href="ip17a.html" class="learn-more-btn">Learn More</a>
-        </div>
-
-
-        <div class="product-card fade-on-scroll">
-            <img src="../image/iphone/iPhone_17.png" alt="iPhone 17" class="product-img">
-
-            <div class="card-content">
-                <h2>iPhone 17</h2>
-                <h3 class="chip-spec">A19 Pro chip</h3>
-                <p>Serious power. Serious value.</p>
-                <span class="price">From RM 2,499</span>
-            </div>
 
         </section>
-    </main>
 
-    <footer>
-        <p>© 2025 TechStore. All rights reserved.</p>
-    </footer>
+        <footer>
+            <p>© 2025 TechStore. All rights reserved.</p>
+        </footer>
 
 </body>
+
+<script src="../script.js" defer></script>
 
 </html>

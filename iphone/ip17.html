@@ -6,107 +6,278 @@
     <title>Buy iPhone 17 - TechStore</title>
     <link rel="stylesheet" href="../styles.css">
     <script src="../script.js" defer></script>
+
+    <style>
+        .selected-swatch {
+            outline: 2px solid #0071e3;
+            outline-offset: 3px;
+        }
+
+        .gallery-wrapper {
+            width: 100%;
+            max-width: 500px;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        #main-product-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: opacity 0.3s ease;
+        }
+
+        .storage-card {
+            border: 2px solid #d2d2d7;
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: border-color 0.3s;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .storage-card.selected-storage {
+            border-color: #0071e3;
+            background-color: rgba(0, 113, 227, 0.05);
+        }
+
+        .swatch-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 15px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+        }
+
+        .gray-text {
+            color: #6e6e73;
+        }
+
+        .purchase-container {
+            display: flex;
+            gap: 50px;
+            padding: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .options-sidebar {
+            flex: 1;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #0071e3;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* New styles for the sticky sub-nav */
+        .sub-nav {
+            position: sticky;
+            top: 64px;
+            /* Adjust based on your main header height */
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(210, 210, 215, 0.5);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .sub-nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 52px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+        }
+
+        .product-name {
+            font-size: 19px;
+            font-weight: 600;
+            letter-spacing: -0.012em;
+            color: #1d1d1f;
+        }
+
+        #nav-price {
+            font-size: 12px;
+            color: #6e6e73;
+            font-weight: 400;
+        }
+    </style>
 </head>
 
 <body class="product-page">
 
-    <header class="apple-header">
-        <div class="header-inner">
-            <a href="../iphone/iphone.html" class="back-link">← Back to iPhone</a>
-            <a href="../index.html" class="logo">TechStore</a>
-            <nav class="main-nav">
-                <a href="../main.html">Store</a>
-                <a href="iphone.html" class="active">iPhone</a>
-                <a href="../ipad/ipad.html">iPad</a>
-                <a href="../mac/mac.html">Mac</a>
-                <a href="../support.html">Support</a>
+    <!-- HEADER -->
+    <header class="apple-header"
+        style="position: sticky; top: 0; background: #fff; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); padding: 15px 50px;">
+        <div class="header-inner"
+            style="display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+
+            <!-- Back to Store -->
+            <a href="../main.html" class="back-link"
+                style="font-size: 14px; font-weight: 500; color: #0071e3; text-decoration: none; margin-right: 20px;">
+                ← Back to Store
+            </a>
+
+            <!-- Logo -->
+            <a href="../index.html" class="logo"
+                style="font-size: 24px; font-weight: bold; color: #1d1d1f; text-decoration: none;">
+                TechStore
+            </a>
+
+            <!-- Navigation -->
+            <nav class="main-nav" style="display: flex; gap: 25px; margin-left: auto;">
+                <a href="../main.html" style="text-decoration: none; color: #1d1d1f; font-weight: 500;">Store</a>
+                <a href="iphone.html" class="active"
+                    style="text-decoration: none; color: #0071e3; font-weight: 500;">iPhone</a>
+                <a href="../ipad/ipad.html" style="text-decoration: none; color: #1d1d1f; font-weight: 500;">iPad</a>
+                <a href="../mac/mac.html" style="text-decoration: none; color: #1d1d1f; font-weight: 500;">Mac</a>
+                <a href="../support.html" style="text-decoration: none; color: #1d1d1f; font-weight: 500;">Support</a>
             </nav>
-            <div class="cart">
-                <a href="../cart.html">🛒 <span id="cart-count">0</span></a>
+
+            <!-- Cart -->
+            <div class="cart" style="margin-left: 20px;">
+                <a href="../cart.html" style="text-decoration: none; font-size: 18px; color: #1d1d1f;">🛒 <span
+                        id="cart-count" style="font-weight: bold;">0</span></a>
             </div>
+
         </div>
     </header>
 
+    <!-- SUB NAV -->
     <div class="sub-nav">
-        <div class="sub-nav-content">
-            <span class="product-name">iPhone 17</span>
+        <div class="sub-nav-content"
+            style="display:flex; justify-content:space-between; padding:15px 50px; border-bottom:1px solid #d2d2d7;">
+            <span class="product-name" style="font-weight:bold;">iPhone 17</span>
+
+            <!-- MATCH ip17pm -->
             <span id="nav-price">From RM 5,499</span>
         </div>
     </div>
 
-    <section class="product-intro-picture fade-on-scroll">
-        <h2>iPhone 17</h2>
-        <h1>New camera. New colors. New you.</h1>
-        <img src="../image/iphone/iphone_17.png" alt="iPhone 17">
-        <h4>
-            A total powerhouse. Now in five stunning new finishes.<br>
-            The most popular iPhone, better than ever.
-        </h4>
-    </section>
+    <main class="purchase-container">
 
-    <section class="product-information fade-on-scroll">
-        <main class="purchase-container">
+        <!-- GALLERY -->
+        <section class="gallery">
+            <div class="gallery-wrapper">
+                <img id="main-product-img" src="../image/iphone/iphone_17.png" alt="iPhone 17">
+            </div>
+        </section>
 
-            <section class="gallery">
-                <div class="gallery-wrapper">
-                    <img id="main-product-img" src="../image/iphone/iphone_17.png" alt="iPhone 17">
+        <!-- OPTIONS -->
+        <section class="options-sidebar">
+            <h1 class="buy-title" style="font-size:40px; margin-bottom:30px;">
+                Buy iPhone 17
+            </h1>
+
+            <!-- COLOR -->
+            <div class="section-group" style="margin-bottom:40px;">
+                <h3>Finish. <span id="color-name" class="gray-text">Select a color</span></h3>
+
+                <div class="swatch-row" style="margin-top:15px;">
+                    <div class="swatch-circle" style="background:#3C3C3D;"
+                        data-image="../image/iphone/iPhone_17_Black.png" title="Black"></div>
+
+                    <div class="swatch-circle" style="background:#F2F2F2;"
+                        data-image="../image/iphone/iPhone_17_White.png" title="White"></div>
+
+                    <div class="swatch-circle" style="background:#A8BBA2;"
+                        data-image="../image/iphone/iPhone_17_Sage.png" title="Sage"></div>
+
+                    <div class="swatch-circle" style="background:#B9CADF;"
+                        data-image="../image/iphone/iPhone_17_Mist_Blue.png" title="Mist Blue"></div>
+
+                    <div class="swatch-circle" style="background:#D4C5E2;"
+                        data-image="../image/iphone/iPhone_17_Lavender.png" title="Lavender"></div>
                 </div>
-            </section>
+            </div>
 
-            <section class="options-sidebar">
-                <h1 class="buy-title">Buy iPhone 17</h1>
+            <!-- STORAGE -->
+            <div class="section-group">
+                <h3>Storage. <span class="gray-text">How much space do you need?</span></h3>
 
-                <div class="section-group">
-                    <h3>Finish. <span id="color-name" class="gray-text">Select a color</span></h3>
-                    <div class="swatch-row">
-                        <div class="swatch-circle" style="background:#3C3C3D;"
-                            data-image="../image/iphone/iPhone_17_Black.png" title="Black"></div>
+                <div class="storage-list" style="margin-top:15px;">
+                    <div class="storage-card" data-price="RM 5,499">
+                        <span class="size">256GB</span>
+                        <span class="price-tag">RM 5,499</span>
+                    </div>
 
-                        <div class="swatch-circle" style="background:#F2F2F2;"
-                            data-image="../image/iphone/iPhone_17_White.png" title="White"></div>
+                    <div class="storage-card" data-price="RM 6,499">
+                        <span class="size">512GB</span>
+                        <span class="price-tag">RM 6,499</span>
+                    </div>
 
-                        <div class="swatch-circle" style="background:#A8BBA2;"
-                            data-image="../image/iphone/iPhone_17_Sage.png" title="Sage"></div>
-
-                        <div class="swatch-circle" style="background:#B9CADF;"
-                            data-image="../image/iphone/iPhone_17_Mist_Blue.png" title="Mist Blue"></div>
-
-                        <div class="swatch-circle" style="background:#D4C5E2;"
-                            data-image="../image/iphone/iPhone_17_Lavender.png" title="Lavender"></div>
+                    <div class="storage-card" data-price="RM 7,499">
+                        <span class="size">1TB</span>
+                        <span class="price-tag">RM 7,499</span>
                     </div>
                 </div>
 
-                <div class="section-group">
-                    <h3>Storage. <span class="gray-text">How much space do you need?</span></h3>
-                    <div class="storage-list">
-                        <div class="storage-card" data-price="From RM 5,499">
-                            <span class="storage-size">256GB</span>
-                            <span class="storage-price">From RM 5,499</span>
-                        </div>
-
-                        <div class="storage-card" data-price="From RM 6,499">
-                            <span class="storage-size">512GB</span>
-                            <span class="storage-price">From RM 6,499</span>
-                        </div>
-
-                        <div class="storage-card" data-price="From RM 7,499">
-                            <span class="storage-size">1TB</span>
-                            <span class="storage-price">From RM 7,499</span>
-                        </div>
-                    </div>
-                </div>
-
-                <button class="add-to-cart-btn" data-name="iPhone 17" data-img="../image/iphone/iphone_17.png">
+                <!-- ADDED (same as ip17pm) -->
+                <button class="add-to-cart-btn" data-name="iPhone 17" data-price="5499"
+                    data-img="../image/iphone/iphone_17.png"
+                    style="margin-top:30px;padding:15px 25px;font-size:16px;border-radius:12px;border:none;background:#0071e3;color:#fff;">
                     Add to Cart
                 </button>
-            </section>
+            </div>
 
-        </main>
-    </section>
+        </section>
+    </main>
 
-    <footer>
-        <p>© 2026 TechStore. All rights reserved.</p>
-    </footer>
+    <!-- LOGIC (matched) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const swatches = document.querySelectorAll('.swatch-circle');
+            const mainImg = document.getElementById('main-product-img');
+            const colorLabel = document.getElementById('color-name');
+
+            swatches.forEach(swatch => {
+                swatch.addEventListener('click', function () {
+                    const newImg = this.dataset.image;
+                    if (newImg) {
+                        mainImg.style.opacity = '0';
+                        setTimeout(() => {
+                            mainImg.src = newImg;
+                            mainImg.style.opacity = '1';
+                        }, 150);
+                    }
+                    colorLabel.textContent = this.title;
+                    swatches.forEach(s => s.classList.remove('selected-swatch'));
+                    this.classList.add('selected-swatch');
+                });
+            });
+
+            const storageCards = document.querySelectorAll('.storage-card');
+            const navPrice = document.getElementById('nav-price');
+
+            storageCards.forEach(card => {
+                card.addEventListener('click', function () {
+                    navPrice.textContent = this.dataset.price;
+                    storageCards.forEach(c => c.classList.remove('selected-storage'));
+                    this.classList.add('selected-storage');
+                });
+            });
+        });
+    </script>
 
 </body>
 
