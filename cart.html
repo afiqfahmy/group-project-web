@@ -101,6 +101,15 @@
         <h1>Your Cart</h1>
         <div id="cart-items"></div>
         <div class="total" id="cart-total"></div>
+        <div id="custom-alert" class="custom-alert">
+            <div class="alert-content">
+                <span class="alert-icon">
+                    <span class="alert-message">
+                        Item added to cart. 
+                    </span>
+                </span>
+            </div>
+        </div>
     </main>
 
     <script>
@@ -159,6 +168,7 @@
             cartTotal.textContent = `Total: RM ${totalPrice}`;
         });
     </script>
+    <script src="script.js"></script>
 
 </body>
 
