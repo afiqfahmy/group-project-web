@@ -7,74 +7,73 @@
     <title>TechStore | Store</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
-
 </head>
 
 <body>
 
-    <header class="apple-header"
-        style="position: sticky; top: 0; background: #fff; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); padding: 15px 50px;">
-        <div class="header-inner"
-            style="display: flex; align-items: center; justify-content: space-between; gap: 20px;">
-
-            <!-- Back to Store -->
-            <a href="../main.html" class="back-link"
-                style="font-size: 14px; font-weight: 500; color: #0071e3; text-decoration: none; margin-right: 20px;">
-                ← Back to Store
-            </a>
-
-            <!-- Logo -->
-            <a href="../index.html" class="logo"
-                style="font-size: 24px; font-weight: bold; color: #1d1d1f; text-decoration: none;">
+    <header class="apple-header">
+        <div class="header-inner">
+            <a href="../index.html" class="logo">
                 TechStore
             </a>
 
-            <!-- Navigation -->
-            <nav class="main-nav" style="display: flex; gap: 25px; margin-left: auto;">
-                <a href="main.html" class="active"
-                    style="text-decoration: none; color: #0071e3; font-weight: 500;">Store</a>
-                <a href="/iphone/iphone.html"
-                    style="text-decoration: none; color: #1d1d1f; font-weight: 500;">iPhone</a>
-                <a href="/ipad/ipad.html" style="text-decoration: none; color: #1d1d1f; font-weight: 500;">iPad</a>
-                <a href="/mac/mac.html" style="text-decoration: none; color: #1d1d1f; font-weight: 500;">Mac</a>
-                <a href="/support.html" style="text-decoration: none; color: #1d1d1f; font-weight: 500;">Support</a>
+            <nav class="main-nav">
+                <a href="main.html" class="active">Store</a>
+                <a href="/iphone/iphone.html">iPhone</a>
+                <a href="/ipad/ipad.html">iPad</a>
+                <a href="/mac/mac.html">Mac</a>
+                <a href="/support.html">Support</a>
             </nav>
 
-            <!-- Cart -->
-            <div class="cart" style="margin-left: 20px;">
-                <a href="../cart.html" style="text-decoration: none; font-size: 18px; color: #1d1d1f;">🛒 <span
-                        id="cart-count" style="font-weight: bold;">0</span></a>
+            <div class="cart">
+                <a href="../cart.html">🛒 <span id="cart-count">0</span></a>
             </div>
-
         </div>
     </header>
 
-    <!-- CATEGORIES -->
-    <section class="categories fade-on-scroll">
+    <main class="categories-container">
+        <div class="section-header">
+            <h1 class="fade-on-scroll">Store. <span class="gray-text">The best way to buy the products you love.</span>
+            </h1>
+        </div>
 
-        <a href="iphone/iphone.html" class="category-card fade-on-scroll">
-            <img src="image/iphone.png" alt="iPhone">
-            <h2>iPhone</h2>
-            <p>Experience the power of iOS.</p>
-            <span>Shop iPhone</span>
-        </a>
+        <section class="categories-grid">
 
-        <a href="ipad/ipad.html" class="category-card fade-on-scroll">
-            <img src="image/ipad.png" alt="iPad">
-            <h2>iPad</h2>
-            <p>Work, create, and play anywhere.</p>
-            <span>Shop iPad</span>
-        </a>
+            <a href="iphone/iphone.html" class="category-card fade-on-scroll">
+                <div class="card-content">
+                    <span class="card-subtitle">iPhone</span>
+                    <h2 class="card-title">Experience the power of iOS.</h2>
+                </div>
+                <div class="card-image">
+                    <img src="image/iphone.png" alt="iPhone">
+                </div>
+                <span class="shop-link">Shop iPhone &gt;</span>
+            </a>
 
-        <a href="mac/mac.html" class="category-card fade-on-scroll">
-            <img src="image/mac-b.png" alt="MacBook" style="max-height: 100px; max-width: 100px;">
-            <h2>Mac</h2>
-            <p>Performance meets elegance.</p>
-            <span>Shop Mac</span>
-        </a>
+            <a href="ipad/ipad.html" class="category-card fade-on-scroll">
+                <div class="card-content">
+                    <span class="card-subtitle">iPad</span>
+                    <h2 class="card-title">Work, create, and play anywhere.</h2>
+                </div>
+                <div class="card-image">
+                    <img src="image/ipad.png" alt="iPad">
+                </div>
+                <span class="shop-link">Shop iPad &gt;</span>
+            </a>
 
-    </section>
+            <a href="mac/mac.html" class="category-card fade-on-scroll">
+                <div class="card-content">
+                    <span class="card-subtitle">Mac</span>
+                    <h2 class="card-title">Performance meets elegance.</h2>
+                </div>
+                <div class="card-image">
+                    <img src="image/mac-b.png" alt="MacBook">
+                </div>
+                <span class="shop-link">Shop Mac &gt;</span>
+            </a>
 
+        </section>
+    </main>
 
     <footer>
         <p>© 2025 TechStore. All rights reserved.</p>

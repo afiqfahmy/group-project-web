@@ -1,783 +1,509 @@
-/* ===================================================================================================== */
-/* =============================================== RESET =============================================== */
-/* ===================================================================================================== */
-
+/* =========================
+    1. RESET & BASE
+========================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ===================================================================================================== */
-/* ================================================ BASE =============================================== */
-/* ===================================================================================================== */
-
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-    background-color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: #1d1d1f;
-    display: flex;
-    flex-direction: column;
+    background-color: #ffffff;
 }
 
-html,
-body {
-    height: 100%;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-/* ===================================================================================================== */
-/* =============================================== HEADER ============================================== */
-/* ===================================================================================================== */
+.gray-text {
+    color: #6e6e73;
+}
 
-/* Apple-style Header */
+/* =========================
+    2. HEADER (APPLE STYLE)
+========================= */
 .apple-header {
     position: sticky;
     top: 0;
+    height: 64px;
     z-index: 1000;
-
-    background-color: #ffffff;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: saturate(180%) blur(12px);
     border-bottom: 1px solid #d2d2d7;
 }
 
 .header-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 14px 24px;
-
+    padding: 12px 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 100%;
 }
 
-/* Logo */
-/* Force the title to be center */
 .logo {
-    position: absolute;
-    font-size: 20px;
     font-weight: 600;
-    color: #1d1d1f;
-    text-decoration: none;
-    left: 50%;
-    transform: translateX(-50%);
+    font-size: 24px;
+    /* Updated to match benchmark */
 }
 
-/* Change the logo name of the home page */
-/* To prevent it been modified center also follow othres page */
-.home-page-logo {
-    font-size: 20px;
-    font-weight: 600;
-    color: #1d1d1f;
-    text-decoration: none;
-}
-
-/* Navigation */
 .main-nav {
     display: flex;
     gap: 28px;
 }
 
-
 .main-nav a {
     font-size: 14px;
-    font-weight: 400;
     color: #1d1d1f;
-    text-decoration: none;
-    position: relative;
+    transition: color 0.2s;
 }
 
-/* Hover effect */
-.main-nav a:hover {
-    opacity: 0.7;
+.main-nav a.active {
+    font-weight: 600;
+    color: #0071e3;
 }
 
-/* Active link (Apple subtle underline) */
-.main-nav a.active::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -16px;
-    width: 100%;
-    height: 2px;
-    background-color: #1d1d1f;
+.cart a {
+    font-size: 14px;
 }
 
-/* HEADER BACK BUTTON */
-.header-back {
+.back-link {
     font-size: 14px;
     color: #0071e3;
-    text-decoration: none;
-    font-weight: 500;
-    margin-right: 16px;
-    white-space: nowrap;
 }
 
-.header-back:hover {
+.back-link:hover {
     text-decoration: underline;
 }
 
-
-.header-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-
-
-/* ===================================================================================================== */
-/* ================================================ HERO =============================================== */
-/* ===================================================================================================== */
-
-.hero {
-    text-align: center;
-    padding: 120px 20px;
-}
-
-.hero h1 {
-    font-size: 52px;
-    font-weight: 600;
-    margin-bottom: 16px;
-}
-
-.hero p {
-    font-size: 20px;
-    color: #6e6e73;
-    margin-bottom: 32px;
-}
-
-.btn {
-    background: #0071e3;
-    color: white;
-    padding: 12px 28px;
-    border-radius: 999px;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.btn:hover {
-    background: #005bb5;
-}
-
-/* ===================================================================================================== */
-/* ============================================== CATEGORIES =========================================== */
-/* ===================================================================================================== */
-
-.categories {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
-    padding: 80px 60px;
-}
-
-.category-card {
-    display: block;
-    background: #ffffff;
-    border-radius: 18px;
-    padding: 24px;
-    text-align: center;
-
-    text-decoration: none;
-    color: inherit;
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        background-color 0.25s ease;
-}
-
-.category-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
-    background-color: #f9f9fb;
-}
-
-
-.category-card img {
-    width: 180px;
-    margin-bottom: 24px;
-}
-
-.category-card h2,
-.category-card h3 {
-    color: black;
-}
-
-.category-card h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-.category-card h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.category-card p {
-    margin-bottom: 16px;
-    color: black;
-}
-
-.category-card a {
-    text-decoration: none;
-    color: #0071e3;
-    font-size: 16px;
-}
-
-/* ===================================================================================================== */
-/* ================================================ FOOTER ============================================= */
-/* ===================================================================================================== */
-
-footer {
-    text-align: center;
-    padding: 40px 20px;
-    border-top: 1px solid #e5e5e5;
-    font-size: 13px;
-    color: #6e6e73;
-}
-
-.content {
-    flex: 1;
-}
-
-/* ===================================================================================================== */
-/* ============================================ PRODUCT LIST PAGE ====================================== */
-/* ===================================================================================================== */
-
-.product-hero {
-    text-align: center;
-    padding: 100px 20px 60px;
-}
-
-.product-hero h1 {
-    font-size: 56px;
-    font-weight: 600;
-    margin-bottom: 12px;
-}
-
-.product-hero p {
-    font-size: 20px;
-    color: #6e6e73;
-}
-
-/* Product Grid */
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 40px;
-    padding: 60px;
-}
-
-/* Product Card (FINAL VERSION KEPT) */
-
-.product-card {
-    display: flex;
-    flex-direction: column;
-    background: #ffffff;
-    border-radius: 18px;
-    padding: 24px;
-    text-align: center;
-
-    text-decoration: none;
-    color: inherit;
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        background-color 0.25s ease;
-}
-
-.product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
-    background-color: #f9f9fb;
-    /* subtle Apple gray */
-}
-
-.product-card h2 {
-    font-size: 24px;
-    margin-bottom: 8px;
-}
-
-.product-card h3 {
-    font-size: 14px;
-    margin-bottom: 8px;
-}
-
-.product-card p {
-    color: #6e6e73;
-    margin-bottom: 12px;
-}
-
-.product-card span {
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 10px;
-}
-
-/* Accessibility */
-
-.product-card:focus {
-    outline: 2px solid #0071e3;
-    outline-offset: 4px;
-}
-
-/* Product Image */
-
-.product-img {
-    width: 100%;
-    height: 260px;
-    margin-bottom: 24px;
-    border-radius: 14px;
-}
-
-.product-img img,
-.product-card img {
-    width: 100%;
-    height: 260px;
-    object-fit: contain;
-}
-
-/* Placeholder */
-
-.placeholder {
-    background: linear-gradient(135deg, #d2d2d7, #f5f5f7);
-}
-
-/* Learn More Button */
-
-.learn-more-btn {
-    display: inline-flex;
-    flex-direction: column;
-    /* key for perfect centering */
-    align-items: center;
-    /* vertical center */
-    justify-content: center;
-    /* horizontal center */
-
-    padding: 8px 16px;
-    /* Apple-like spacing */
-    margin: 16px auto 20px;
-    /* center button inside card */
-
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-
-    color: #0066cc;
-    /* Apple blue */
-    border: 1px solid #0066cc;
-    border-radius: 999px;
-    /* pill shape */
-
-    transition: all 0.25s ease;
-}
-
-.learn-more-btn:hover {
-    background-color: #0066cc;
-    color: #ffffff;
-}
-
-/* ===================================================================================================== */
-/* ============================================ PRODUCT INTRODUCTION PAGE ==================================== */
-/* ===================================================================================================== */
-.product-intro-page mark {
-    background: transparent;
-}
-
-.product-intro-picture {
-    /* creating apple - like gradient background color*/
-    background-image: linear-gradient(to bottom, #D7EBF6, #FFFFFF);
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    width: 100vw;
-    align-items: center;
-    text-align: center;
-}
-
-.product-intro-picture h2 {
-    margin-top: 50px;
-}
-
-/* Create the gradient effect for the title */
-.product-intro-title {
-    margin-top: 20px;
-    font-size: 48px;
-
-    /* The linear-gradient function only work with the background-image property */
-    background-image: linear-gradient(to right, #032741, #5482A7);
-    
-    /* Clip the text with the image */
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    /* Set the color of the text to transparent to show the background gradient color */
-    color: transparent;
-    font-weight: bold;
-}
-
-.product-intro-subtitle {
-    padding-left: 20px;
-}
-
-.product-intro-picture img {
-    margin-top: 50px;
-    width: 400px;
-    height: 300px;
-}
-
-/* Description text for the product */
-.product-desc {
-    margin-top: 20px;
-    color: #98989C;
-    text-align: left;
-    margin-bottom: 20px;
-}
-
-/* Create a container for the product description to let the text seem at center*/
-.product-desc-holder {
-    max-width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.product-intro-subtitle {
-    font-size: 12px;
-    color: black;
-    font-weight: bold;
-    padding-left: 20%;
-    padding-top: 5%;
-}
-
-/* Redundent code for the subtitle */
-
-.product-information h1 {
-    padding-top: 10px;
-    padding-left: 20%;
-    padding-bottom: 20px;
-    font-size: 48px;
-
-    /* The linear-gradient function only work with the background-image property */
-    background-image: linear-gradient(to right, #032741, #5482A7);
-    
-    /* Clip the text with the image */
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    /* Set the color of the text to transparent to show the background gradient color */
-    color: transparent;
-    font-weight: bold;
-}
-
-.product-information img {
-    width: 100%;
-    height: 400px;
-}
-
-/* The page that let user previe the different color */
-.preview-color {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.preview-color img {
-    max-width: 350px;
-    max-height: 680px;
-}
-
-/* ---- The add to cart button customize */
-.add-to-cart-button {
-    padding: 10px;
-    border-radius: 5px;
-    border: 0px;
-    background-color: #0071e3;
-    color: white;
-}
-
-.add-to-cart-button:hover {
-    background-color: #0066cc;
-}
-
-.add-to-cart-button-container {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    align-items: end;
-}
-
-.action-container {
-    display: flex;
-    flex-direction: column;
-}
-
-/* ===================================================================================================== */
-/* ============================================ PRODUCT DETAIL PAGE ==================================== */
-/* ===================================================================================================== */
-
-.product-page {
-    background-color: #ffffff;
-}
-
-/* Sticky Sub Navigation (FINAL VERSION KEPT) */
-
+/* =========================
+    3. SUB NAV (PRODUCT)
+========================= */
 .sub-nav {
     position: sticky;
-    top: 0;
-    width: 100%;
-    height: 52px;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(20px);
+    top: 64px;
+    z-index: 900;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: saturate(180%) blur(12px);
     border-bottom: 1px solid #d2d2d7;
-    z-index: 100;
 }
 
 .sub-nav-content {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
-    height: 100%;
-    padding: 0 20px;
+    padding: 14px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .product-name {
-    font-size: 21px;
+    font-size: 19px;
+    /* Updated for Apple style */
     font-weight: 600;
 }
 
-/* Purchase Layout */
-
-.purchase-container {
-    display: flex;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding-top: 80px;
-    gap: 50px;
+#nav-price {
+    font-size: 12px;
+    /* Matched to benchmark span style */
+    font-weight: 400;
+    color: #6e6e73;
+    transition: opacity 0.2s ease;
 }
 
-/* Gallery */
+/* =========================
+    4. HERO / INTRO SECTION
+========================= */
+.product-intro-picture {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 130px;
+    padding-bottom: 80px;
+}
 
-.gallery {
-    flex: 1;
+.product-intro-picture h2 {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: #6e6e73;
+}
+
+.product-intro-picture h1 {
+    font-size: 64px;
+    font-weight: 600;
+    margin: 12px 0 32px;
+}
+
+.product-intro-picture img {
+    margin: 40px 0;
+    max-width: 420px;
+}
+
+.product-intro-picture h4 {
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 520px;
+    margin: 0 auto;
+    color: #6e6e73;
+}
+
+/* =========================
+    5. PURCHASE SECTION & GALLERY
+========================= */
+.product-information {
+    padding: 80px 0;
+}
+
+.purchase-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 80px;
+    align-items: flex-start;
 }
 
 .gallery-wrapper {
-    position: sticky;
-    top: 100px;
-}
-
-.gallery img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    max-width: 450px;
-    display: block;
-    transition: opacity 0.3s ease-in-out;
+    max-width: 500px;
+    height: 600px;
+    margin: 0 auto;
 }
 
-/* Options Sidebar */
-
-.options-sidebar {
-    flex: 0.8;
-    text-align: left;
+.gallery-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
 }
 
-.buy-title {
+/* =========================
+    6. OPTIONS SIDEBAR (GENERAL)
+========================= */
+.options-sidebar .buy-title {
     font-size: 40px;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
+}
+
+.options-sidebar h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 24px;
+    margin-bottom: 12px;
 }
 
 .section-group {
-    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
-.section-group h3 {
-    font-size: 17px;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-
-.gray-text {
-    color: #6e6e73;
-    font-weight: 400;
-}
-
-/* Storage Cards */
-
-.storage-card {
-    border: 1px solid #d2d2d7;
-    border-radius: 12px;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-    cursor: pointer;
-    transition: border-color 0.2s;
-}
-
-.storage-card:hover {
-    border-color: #0071e3;
-}
-
-.storage-card .size {
-    font-size: 17px;
-    font-weight: 600;
-}
-
-.storage-card .price-tag {
-    font-size: 12px;
-}
-
-/* Color Swatches */
-
+/* =========================
+    7. COLOR SWATCHES
+========================= */
 .swatch-row {
     display: flex;
-    gap: 12px;
+    gap: 14px;
+    margin-bottom: 30px;
+    margin-top: 15px;
 }
 
-.swatch,
 .swatch-circle {
     width: 32px;
     height: 32px;
     border-radius: 50%;
     cursor: pointer;
-    border: 1px solid #d2d2d7;
+    border: 1px solid #ddd;
+    transition: transform 0.2s ease;
 }
 
-.swatch:hover {
-    border-color: #0071e3;
+.swatch-circle:hover {
+    transform: scale(1.1);
 }
 
 .selected-swatch {
     outline: 2px solid #0071e3;
-    outline-offset: 2px;
+    outline-offset: 3px;
+    border-color: transparent;
 }
 
-/* ===================================================================================================== */
-/* ============================================== ANIMATIONS =========================================== */
-/* ===================================================================================================== */
-
-.fade-on-scroll {
-    opacity: 0;
-    transform: translateY(50px);
-    filter: blur(1);
-
-    /* will-change tell the browser to prepare the gpu for render*/
-    /* prevent stutter */
-    will-change: opacity, transform, filter;
-
-    transition:
-        opacity 1s cubic-bezier(0.25, 1, 0.5, 1),
-        transform 1s cubic-bezier(0.25, 1, 0.5, 1),
-        filter 1s cubic-bezier(0.25, 1, 0.5, 1);
+/* =========================
+    8. STORAGE CARDS
+========================= */
+.storage-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #d2d2d7;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    background-color: #fff;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
-/* Visible */
-.fade-on-scroll.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-    filter: blur(0);
+.storage-card:hover {
+    border-color: #86868b;
 }
 
-/* Page enter */
-body {
-    opacity: 0;
-    animation: pageFadeIn 0.35s ease forwards;
+.selected-storage {
+    border-color: #0071e3;
+    background-color: rgba(0, 113, 227, 0.05);
 }
 
-@keyframes pageFadeIn {
-    to {
-        opacity: 1;
-    }
-}
-
-/* Exit already handled */
-body.page-exit {
-    opacity: 0;
-}
-
-
-
-/* Stagger Effect */
-.product-card:nth-child(1) {
-    transition-delay: 100ms;
-}
-
-.product-card:nth-child(2) {
-    transition-delay: 200ms;
-}
-
-.product-card:nth-child(3) {
-    transition-delay: 300ms;
-}
-
-/* ===================================================================================================== */
-/* ============================================ SUPPORT PAGE ==================================== */
-/* ===================================================================================================== */
-
-.support {
-    max-width: 480px;
-    margin: 100px auto;
-    text-align: center;
-}
-
-.support h1 {
-    font-size: 32px;
+.storage-size {
+    font-size: 17px;
     font-weight: 600;
+    color: #1d1d1f;
+}
+
+.storage-price {
+    font-size: 14px;
+    color: #6e6e73;
+}
+
+/* =========================
+    9. BUTTONS & UI
+========================= */
+.add-to-cart-btn {
+    width: 100%;
+    margin-top: 32px;
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 999px;
+    border: none;
+    background-color: #0071e3;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #005bb5;
+    transform: translateY(-1px);
+}
+
+.add-to-cart-btn:disabled {
+    background-color: #b5d4f5;
+    cursor: not-allowed;
+}
+
+/* =========================
+    10. STORE GRID LAYOUT
+========================= */
+.categories-container {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 50px;
+}
+
+.section-header h1 {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.category-card {
+    background: #f5f5f7;
+    border-radius: 28px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 450px;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.category-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.card-subtitle {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #6e6e73;
     margin-bottom: 8px;
 }
 
-.support p {
-    color: #6e6e73;
-    margin-bottom: 32px;
+.card-title {
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.card-image {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.card-image img {
+    max-width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+}
+
+.shop-link {
+    font-size: 17px;
+    color: #0071e3;
+}
+
+/* =========================
+    11. PRODUCT GRIDS (iPhone/iPad/Mac Pages)
+========================= */
+.product-hero-section {
+    text-align: center;
+    padding: 80px 20px 40px;
+}
+
+.product-hero-section h1 {
+    font-size: 56px;
+    font-weight: 600;
+}
+
+.product-grid-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 50px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    text-align: center;
+}
+
+.product-image-container {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.product-img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.05);
+}
+
+.chip-spec {
+    color: #bf4800;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.learn-more-btn {
+    display: inline-block;
+    background: #0071e3;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+/* =========================
+    12. SUPPORT & FORMS
+========================= */
+.support {
+    max-width: 600px;
+    margin: 120px auto;
+    padding: 0 24px;
+    text-align: center;
 }
 
 .support-form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 18px;
 }
 
 .support-form input,
 .support-form select {
     padding: 14px 16px;
-    font-size: 15px;
+    font-size: 16px;
     border-radius: 12px;
     border: 1px solid #d2d2d7;
     outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.support-form input:focus,
-.support-form select:focus {
+.support-form input:focus {
     border-color: #0071e3;
+    box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.15);
 }
 
-.support-form button {
-    margin-top: 8px;
-    padding: 14px;
-    font-size: 15px;
-    font-weight: 500;
-    background: #0071e3;
-    color: #fff;
-    border: none;
-    border-radius: 999px;
-    cursor: pointer;
-    transition: background 0.25s ease;
+/* =========================
+    13. UTILITIES & ANIMATIONS
+========================= */
+.fade-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.support-form button:hover {
-    background: #005bb5;
+.fade-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.success-message {
-    display: none;
-    font-size: 18px;
-    font-weight: 500;
-    color: #1d1d1f;
+body.page-exit {
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+/* =========================
+    14. FOOTER & RESPONSIVE
+========================= */
+footer {
+    padding: 60px 50px;
+    text-align: center;
+    border-top: 1px solid #d2d2d7;
+    margin-top: 100px;
+    font-size: 12px;
+    color: #6e6e73;
+}
+
+@media (max-width: 1024px) {
+    .purchase-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .sub-nav-content,
+    .header-inner {
+        padding: 14px 24px;
+    }
 }
