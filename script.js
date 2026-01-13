@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.href.includes('#') ||
                 link.href.startsWith('mailto:') ||
                 link.href.startsWith('tel:') ||
-                !link.href
+                !link.href 
             ) return;
 
             e.preventDefault();
@@ -138,11 +138,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 </span>
             </div>
         `;
-
+        
         myNotifElement.classList.remove('show');
-        void myNotifElement.offsetWidth;
+        void myNotifElement.offsetWidth; 
         myNotifElement.classList.add('show');
-
+        
         setTimeout(() => {
             myNotifElement.classList.remove('show');
         }, 3000);
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderCart() {
         const cartItemsContainer = document.getElementById('cart-items');
         const cartTotalElement = document.getElementById('cart-total');
-
+        
         if (!cartItemsContainer) return; // Only runs if we are on cart.html
 
         cartItemsContainer.innerHTML = '';
