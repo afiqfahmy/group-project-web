@@ -7,64 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles.css">
     <script src="../script.js" defer></script>
-    <style>
-        .cart-container {
-            max-width: 1000px;
-            margin: 50px auto;
-            padding: 0px 20px;
-            text-align: center;
-        }
-
-        .cart-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid #ddd;
-            padding: 15px 0;
-        }
-
-        .cart-item img {
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
-            margin-right: 20px;
-        }
-
-        .cart-item-details {
-            flex: 1;
-        }
-
-        .cart-item-name {
-            font-weight: bold;
-        }
-
-        .cart-item-price {
-            margin-top: 5px;
-            color: #0071e3;
-        }
-
-        .remove-btn {
-            background: #ff3b30;
-            color: #fff;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-left: 30px;
-        }
-
-        .total {
-            text-align: right;
-            margin-top: 20px;
-            font-size: 20px;
-            font-weight: bold;
-            text-align: center;
-        }
-    </style>
 </head>
 
 <body>
-    <!-- Navigaiton bar -->
     <header class="apple-header">
         <div class="header-inner">
             <a href="../main.html" class="back-link">← Back to Store</a>
@@ -78,86 +23,29 @@
             </nav>
 
             <div class="cart">
-                <a href="../cart.html" class="active">🛒 
-                <span id="cart-count">0</span></a>
-                <br>
+                <a href="../cart.html" class="active">🛒 <span id="cart-count">0</span></a>
             </div>
         </div>
     </header>
 
     <main class="cart-container">
-        <h1>Your Cart</h1>
-        <div id="cart-items"></div>
-        <div class="total" id="cart-total"></div>
+        <h1>Your Bag</h1> <div id="cart-items">
+            </div>
+        
+        <div class="cart-summary">
+            <div class="total" id="cart-total">Total: RM 0</div>
+            <button class="checkout-btn" id="checkout-btn">Check Out</button>
+        </div>
+
         <div id="custom-alert" class="custom-alert">
             <div class="alert-content">
-                <span class="alert-icon">
-                    <span class="alert-message">
-                        Item added to cart. 
-                    </span>
-                </span>
+                <span class="alert-message">Item removed.</span>
             </div>
         </div>
     </main>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const cartItems = document.getElementById('cart-items');
-            const cartTotal = document.getElementById('cart-total');
-            const cartCount = document.getElementById('cart-count');
-
-            // Update cart count in header
-            if (cartCount) cartCount.textContent = cart.length;
-
-            // Display cart items
-            let totalPrice = 0;
-
-            cart.forEach((item, index) => {
-                const itemDiv = document.createElement('div');
-                itemDiv.classList.add('cart-item');
-
-                const img = document.createElement('img');
-                img.src = item.img;
-                img.alt = item.name;
-
-                const details = document.createElement('div');
-                details.classList.add('cart-item-details');
-
-                const name = document.createElement('div');
-                name.classList.add('cart-item-name');
-                name.textContent = item.name;
-
-                const price = document.createElement('div');
-                price.classList.add('cart-item-price');
-                price.textContent = `RM ${item.price}`;
-
-                details.appendChild(name);
-                details.appendChild(price);
-
-                const removeBtn = document.createElement('button');
-                removeBtn.classList.add('remove-btn');
-                removeBtn.textContent = 'Remove';
-                removeBtn.addEventListener('click', () => {
-                    cart.splice(index, 1);
-                    localStorage.setItem('cart', JSON.stringify(cart));
-                    location.reload(); // refresh to update cart
-                });
-
-                itemDiv.appendChild(img);
-                itemDiv.appendChild(details);
-                itemDiv.appendChild(removeBtn);
-
-                cartItems.appendChild(itemDiv);
-
-                totalPrice += item.price;
-            });
-
-            cartTotal.textContent = `Total: RM ${totalPrice}`;
-        });
-    </script>
-    <script src="script.js"></script>
-
+    <footer>
+        <p>© 2026 TechStore. All rights reserved.</p>
+    </footer>
 </body>
-
 </html>

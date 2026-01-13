@@ -351,6 +351,88 @@ a {
     flex-direction: column;
 }
 
+/* Cart Page Specific Styles */
+.cart-container {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+    min-height: 60vh;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 30px 0;
+    border-bottom: 1px solid #d2d2d7;
+}
+
+.cart-item img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-right: 30px;
+}
+
+.cart-item-details {
+    flex: 1;
+    text-align: left;
+}
+
+.cart-item-name {
+    font-size: 21px;
+    font-weight: 600;
+    color: #1d1d1f;
+}
+
+.cart-item-price {
+    font-size: 17px;
+    margin-top: 8px;
+    color: #1d1d1f;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    color: #0066cc;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.remove-btn:hover {
+    text-decoration: underline;
+}
+
+.cart-summary {
+    margin-top: 40px;
+    text-align: right;
+    border-top: 2px solid #1d1d1f;
+    padding-top: 20px;
+}
+
+.total {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.checkout-btn {
+    background-color: #0071e3;
+    color: white;
+    padding: 18px 30px;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
+}
+
+.checkout-btn:hover {
+    background-color: #0077ed;
+}
+
 /* ===================================================================================================== */
 /* ============================================ CUSTOMIZE ALERT MESSAGE ==================================== */
 /* ===================================================================================================== */

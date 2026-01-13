@@ -4,72 +4,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechStore | Support</title>
+    <title>Support - TechStore</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 
-<body>
-    <!-- Navigaiton bar -->
+<body class="product-page">
     <header class="apple-header">
         <div class="header-inner">
-            <a href="../main.html" class="back-link">← Back to Store</a>
-            <a href="../index.html" class="logo">TechStore</a>
+            <a href="main.html" class="back-link">← Back</a>
+            <a href="index.html" class="logo">TechStore</a>
             <nav class="main-nav">
-                <a href="../main.html">Store</a>
-                <a href="../iphone/iphone.html">iPhone</a>
-                <a href="../ipad/ipad.html">iPad</a>
-                <a href="../mac/mac.html">Mac</a>
-                <a href="../support.html" class="active">Support</a>
+                <a href="main.html">Store</a>
+                <a href="iphone/iphone.html">iPhone</a>
+                <a href="ipad/ipad.html">iPad</a>
+                <a href="mac/mac.html">Mac</a>
+                <a href="support.html" class="active">Support</a>
             </nav>
-
             <div class="cart">
-                <a href="../cart.html" class="cart-active">🛒 <span id="cart-count">0</span></a>
+                <a href="cart.html">🛒 <span id="cart-count">0</span></a>
             </div>
         </div>
     </header>
 
+    <main class="cart-container" style="max-width: 500px; text-align: center; margin: 100px auto; min-height: 60vh;">
+        <h1 style="font-size: 40px; margin-bottom: 10px;">Support</h1>
+        <p style="color: #6e6e73; margin-bottom: 30px;">We're here to help. Send us a message.</p>
 
-    <!-- SUPPORT SECTION -->
-    <section class="support">
-        <h1>How can we help?</h1>
-        <p>Fill in the form below and our support team will assist you.</p>
+        <form id="supportForm" onsubmit="handleSupportSubmit(event)"
+            style="display: flex; flex-direction: column; gap: 15px;">
+            <input type="text" placeholder="Name" required
+                style="padding: 16px; border: 1px solid #d2d2d7; border-radius: 12px; font-size: 16px; font-family: inherit;">
 
-        <form id="supportForm" class="support-form">
-            <input type="text" placeholder="Your name" required>
-            <input type="email" placeholder="Email address" required>
+            <input type="email" placeholder="Email" required
+                style="padding: 16px; border: 1px solid #d2d2d7; border-radius: 12px; font-size: 16px; font-family: inherit;">
 
-            <select required>
-                <option value="" disabled selected>Type of report</option>
+            <select required
+                style="padding: 16px; border: 1px solid #d2d2d7; border-radius: 12px; font-size: 16px; background: white; font-family: inherit;">
+                <option value="" disabled selected>Select a topic</option>
                 <option>Technical Issue</option>
-                <option>Order Problem</option>
-                <option>Payment Issue</option>
-                <option>General Inquiry</option>
+                <option>Order Inquiry</option>
+                <option>Delivery Problem</option>
+                <option>General Question</option>
             </select>
 
-            <button type="submit">Submit</button>
+            <textarea placeholder="How can we help?" rows="4" required
+                style="padding: 16px; border: 1px solid #d2d2d7; border-radius: 12px; font-size: 16px; font-family: inherit; resize: none;"></textarea>
+
+            <button type="submit" class="add-to-cart-btn" style="margin-top: 10px; cursor: pointer;">
+                Submit Request
+            </button>
         </form>
 
-        <p id="successMessage" class="success-message">
-            Your report has been submitted.
-        </p>
-    </section>
+        <div id="successMessage" style="display: none; padding: 60px 20px;">
+            <div style="font-size: 50px; margin-bottom: 20px;">✓</div>
+            <h2 style="color: #1d1d1f; margin-bottom: 10px;">Message Sent</h2>
+            <p style="color: #6e6e73;">Returning to the store...</p>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 40px; color: #86868b; font-size: 12px;">
+        <p>© 2026 TechStore. All rights reserved.</p>
+    </footer>
 
     <script>
-        const form = document.getElementById("supportForm");
-        const message = document.getElementById("successMessage");
+        function handleSupportSubmit(event) {
+            // 1. Prevent the default browser refresh
+            event.preventDefault();
 
-        form.addEventListener("submit", function (e) {
-            e.preventDefault();
+            const form = document.getElementById("supportForm");
+            const message = document.getElementById("successMessage");
 
-            form.style.display = "none";
-            message.style.display = "block";
+            // 2. Hide the form and show the success state
+            if (form && message) {
+                form.style.display = "none";
+                message.style.display = "block";
 
-            setTimeout(() => {
-                window.location.href = "main.html";
-            }, 2000);
-        });
+                // 3. Optional: Smooth scroll to the success message
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                // 4. Redirect to main.html after 2 seconds
+                // Note: Change to "../main.html" if this file is inside a subfolder
+                setTimeout(() => {
+                    window.location.href = "main.html";
+                }, 2000);
+            }
+        }
     </script>
-
 </body>
 
 </html>
