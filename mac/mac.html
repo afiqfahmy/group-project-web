@@ -11,105 +11,103 @@
 
 <body>
 
-    <header class="apple-header">
-        <div class="header-inner">
-            <a href="../main.html" class="back-link">← Back to Store</a>
+    <!-- HEADER -->
+    <header class="apple-header"
+        style="position: sticky; top: 0; background: #fff; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); padding: 15px 50px;">
+        <div class="header-inner"
+            style="display: flex; align-items: center; justify-content: space-between; gap: 20px;">
 
-            <a href="../index.html" class="logo">TechStore</a>
+            <!-- Back to Store -->
+            <a href="../main.html" class="back-link"
+                style="font-size: 14px; font-weight: 500; color: #0071e3; text-decoration: none; margin-right: 20px;">
+                ← Back to Store
+            </a>
 
-            <nav class="main-nav">
-                <a href="../main.html">Store</a>
-                <a href="../iphone/iphone.html">iPhone</a>
-                <a href="../ipad/ipad.html">iPad</a>
-                <a href="mac.html" class="active">Mac</a>
-                <a href="../support.html">Support</a>
+            <!-- Logo -->
+            <a href="../index.html" class="logo"
+                style="font-size: 24px; font-weight: bold; color: #1d1d1f; text-decoration: none;">
+                TechStore
+            </a>
+
+            <!-- Navigation -->
+            <nav class="main-nav" style="display: flex; gap: 25px; margin-left: auto;">
+                <a href="../main.html" style="text-decoration: none; color: #1d1d1f; font-weight: 500;">Store</a>
+                <a href="../iphone/iphone.html"
+                    style="text-decoration: none; color: #1d1d1f;font-weight: 500;">iPhone</a>
+                <a href="../ipad/ipad.html" style="text-decoration: none; color: #1d1d1f; font-weight: 500;">iPad</a>
+                <a href="../mac/mac.html" class="active"
+                    style="text-decoration: none; color: #0071e3; font-weight: 500;">Mac</a>
+                <a href="../support.html" style="text-decoration: none; color: #1d1d1f; font-weight: 500;">Support</a>
             </nav>
 
-            <div class="cart">
-                <a href="../cart.html">🛒 <span id="cart-count">0</span></a>
+            <!-- Cart -->
+            <div class="cart" style="margin-left: 20px;">
+                <a href="../cart.html" style="text-decoration: none; font-size: 18px; color: #1d1d1f;">🛒 <span
+                        id="cart-count" style="font-weight: bold;">0</span></a>
             </div>
+
         </div>
     </header>
 
-    <section class="product-hero-section">
-        <h1 class="fade-on-scroll">Mac</h1>
-        <p class="fade-on-scroll gray-text">Performance meets elegance.</p>
     <!-- PAGE TITLE -->
-    <section class="product-hero fade-on-scroll">
+    <section class="product-hero">
         <h1>Mac</h1>
         <p>Performance meets elegance.</p>
     </section>
 
-    <main class="product-grid-container">
-        <section class="product-grid">
+    <!-- MAC MODELS GRID -->
+    <section class="product-grid">
 
-            <div class="product-card fade-on-scroll">
-                <div class="product-image-container">
-                    <img src="../image/mac/mba_13_15.png" alt="MacBook Air 13 & 15" class="product-img">
-                </div>
-                <div class="product-info">
-                    <h2 class="product-name">MacBook Air 13″ & 15″</h2>
-                    <p class="chip-spec">M4 chip</p>
-                    <p class="product-desc">Strikingly thin and fast so you can work, play or create anywhere.</p>
-                    <span class="price">From RM 4,499</span>
-                    <a href="mca.html" class="learn-more-btn">Learn More</a>
-                </div>
-        <div class="product-card fade-on-scroll">
+        <div class="product-card">
             <img src="../image/mac/mba_13_15.png" alt="MacBook Air 13 & 15" class="product-img">
             <div class="card-content">
                 <h2>MacBook Air 13″ & 15″</h2>
                 <h3>M4 chip</h3>
                 <p>Strikingly thin and fast so you can work, play or create anywhere.</p>
                 <span class="price">From RM 4,499 or RM 187.46/mo. for 24 months</span>
-            </div>
 
-            <div class="product-card fade-on-scroll">
-                <div class="product-image-container">
-                    <img src="../image/mac/mbp_14_16_fe31fb260.png" alt="MacBook Pro 14 & 16" class="product-img">
-                </div>
-                <div class="product-info">
-                    <h2 class="product-name">MacBook Pro 14″ & 16″</h2>
-                    <p class="chip-spec">M5, M4 Pro or M4 Max chip</p>
-                    <p class="product-desc">The most advanced Mac laptops for demanding professional workflows.</p>
-                    <span class="price">From RM 6,999</span>
-                    <a href="mbp_14_16.html" class="learn-more-btn">Learn More</a>
-                </div>
-        <div class="product-card fade-on-scroll">
+
+
+
+            </div>
+            <a href="mca.html" class="learn-more-btn">Learn More</a>
+        </div>
+
+        <div class="product-card">
             <img src="../image/mac/mbp_14_16_fe31fb260.png" alt="MacBook Pro 14 & 16" class="product-img">
             <div class="card-content">
                 <h2>MacBook Pro 14″ & 16″</h2>
                 <h3>M5, M4 Pro or M4 Max chip</h3>
                 <p>The most advanced Mac laptops for demanding workflows.</p>
                 <span class="price">From RM 6,999 or RM 291.63/mo. for 24 months</span>
-            </div>
 
-            <div class="product-card fade-on-scroll">
-                <div class="product-image-container">
-                    <img src="../image/mac/imac_24_61ff9f35d.png" alt="iMac" class="product-img">
-                </div>
-                <div class="product-info">
-                    <h2 class="product-name">iMac</h2>
-                    <p class="chip-spec">M4 chip</p>
-                    <p class="product-desc">A stunning all‑in‑one desktop for creativity and productivity.</p>
-                    <span class="price">From RM 5,799</span>
-                    <a href="imac.html" class="learn-more-btn">Learn More</a>
-                </div>
-        <div class="product-card fade-on-scroll">
+
+
+
+            </div>
+            <a href="mbp_14_16.html" class="learn-more-btn">Learn More</a>
+        </div>
+
+        <div class="product-card">
             <img src="../image/mac/imac_24_61ff9f35d.png" alt="iMac" class="product-img">
             <div class="card-content">
                 <h2>iMac</h2>
                 <h3>M4 chip</h3>
                 <p>A stunning all‑in‑one desktop for creativity and productivity.</p>
                 <span class="price">From RM 5,799 or RM 241.63/mo. for 24 months</span>
-            </div>
 
-        </section>
-    </main>
+
+
+
+            </div>
+            <a href="imac.html" class="learn-more-btn">Learn More</a>
+        </div>
+
+    </section>
+
 
     <footer>
         <p>© 2025 TechStore. All rights reserved.</p>
     </footer>
-
 </body>
-
 </html>
