@@ -14,6 +14,10 @@ body {
     background-color: #f5f5f7;
 }
 
+body mark {
+    background: transparent;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -48,13 +52,18 @@ a {
 }
 
 .logo {
+    position: absolute;
     font-weight: 600;
     font-size: 24px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .main-nav {
     display: flex;
     gap: 28px;
+    margin-left: auto;
+    margin-right: 30px;
 }
 
 .main-nav a {
@@ -254,10 +263,6 @@ a {
     background-color: white;
 }
 
-.product-intro-page mark {
-    background: transparent;
-}
-
 .product-intro-picture {
     background-image: linear-gradient(to bottom, #D7EBF6, #FFFFFF);
     display: flex;
@@ -266,6 +271,7 @@ a {
     width: 100vw;
     align-items: center;
     text-align: center;
+    margin-bottom: 150px;
 }
 
 .product-intro-picture h2 {
@@ -829,6 +835,15 @@ a {
     border: 1px solid #d2d2d7;
     outline: none;
     transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.submit-form-btn {
+    padding: 10px;
+    border-radius: 100px;
+    border: 0px;
+    background-color: #0071e3;
+    color: white;
+    font-size: 16px;
 }
 
 /* =========================
