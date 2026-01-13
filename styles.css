@@ -49,6 +49,7 @@ a {
     font-weight: 600;
     font-size: 24px;
     /* Updated to match benchmark */
+    left: 50%;
 }
 
 .main-nav {
@@ -80,11 +81,6 @@ a {
     text-decoration: underline;
 }
 
-<<<<<<< HEAD
-/* =========================
-    3. SUB NAV (PRODUCT)
-========================= */
-=======
 
 .header-inner {
     display: flex;
@@ -549,7 +545,6 @@ footer {
 
 /* Sticky Sub Navigation (FINAL VERSION KEPT) */
 
->>>>>>> 4d96428588279fc8f9a3aa90e2bc61d13e60505b
 .sub-nav {
     position: sticky;
     top: 64px;
