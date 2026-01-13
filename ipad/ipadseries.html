@@ -6,219 +6,99 @@
     <title>Buy iPad - TechStore</title>
     <link rel="stylesheet" href="../styles.css">
     <script src="../script.js" defer></script>
-
-    <style>
-        .selected-swatch {
-            outline: 2px solid #0071e3;
-            outline-offset: 3px;
-        }
-
-        .gallery-wrapper {
-            width: 100%;
-            max-width: 500px;
-            height: 600px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto;
-        }
-
-        #main-product-img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            transition: opacity 0.3s ease;
-        }
-
-        .storage-card {
-            border: 2px solid #d2d2d7;
-            border-radius: 12px;
-            padding: 20px;
-            cursor: pointer;
-            transition: border-color 0.3s;
-            margin-bottom: 12px;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .storage-card.selected-storage {
-            border-color: #0071e3;
-            background-color: rgba(0, 113, 227, 0.05);
-        }
-
-        .swatch-circle {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 15px;
-            cursor: pointer;
-            border: 1px solid #ddd;
-        }
-
-        .gray-text {
-            color: #6e6e73;
-        }
-
-        .purchase-container {
-            display: flex;
-            gap: 50px;
-            padding: 50px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .options-sidebar {
-            flex: 1;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            font-size: 14px;
-            font-weight: 500;
-            color: #0071e3;
-            text-decoration: none;
-        }
-
-        .back-link:hover {
-            text-decoration: underline;
-        }
-    </style>
 </head>
 
 <body class="product-page">
 
-    <header class="apple-header"
-        style="position: sticky; top: 0; background: #fff; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); padding: 15px 50px;">
-        <div class="header-inner"
-            style="display: flex; align-items: center; justify-content: space-between; gap: 20px;">
-
-            <a href="../main.html" class="back-link"
-                style="font-size: 14px; font-weight: 500; color: #0071e3; text-decoration: none; margin-right: 20px; margin-bottom: 0;">
-                ← Back to Store
-            </a>
-
-            <a href="../index.html" class="logo"
-                style="font-size: 24px; font-weight: bold; color: #1d1d1f; text-decoration: none;">
-                TechStore
-            </a>
-
-            <nav class="main-nav" style="display: flex; gap: 25px; margin-left: auto;">
-                <a href="../main.html" style="text-decoration: none; color: #1d1d1f; font-weight: 500;">Store</a>
-                <a href="../iphone/iphone.html"
-                    style="text-decoration: none; color: #1d1d1f; font-weight: 500;">iPhone</a>
-                <a href="ipad.html" class="active"
-                    style="text-decoration: none; color: #0071e3; font-weight: 500;">iPad</a>
-                <a href="../mac/mac.html" style="text-decoration: none; color: #1d1d1f; font-weight: 500;">Mac</a>
-                <a href="../support.html" style="text-decoration: none; color: #1d1d1f; font-weight: 500;">Support</a>
+    <header class="apple-header">
+        <div class="header-inner">
+            <a href="../main.html" class="back-link">← Back to Store</a>
+            <a href="../index.html" class="logo">TechStore</a>
+            <nav class="main-nav">
+                <a href="../main.html">Store</a>
+                <a href="../iphone/iphone.html">iPhone</a>
+                <a href="ipad.html" class="active">iPad</a>
+                <a href="../mac/mac.html">Mac</a>
+                <a href="../support.html">Support</a>
             </nav>
-
-            <div class="cart" style="margin-left: 20px;">
-                <a href="../cart.html" style="text-decoration: none; font-size: 18px; color: #1d1d1f;">🛒 <span
-                        id="cart-count" style="font-weight: bold;">0</span></a>
+            <div class="cart">
+                <a href="../cart.html">🛒 <span id="cart-count">0</span></a>
             </div>
-
         </div>
     </header>
 
     <div class="sub-nav">
-        <div class="sub-nav-content"
-            style="display: flex; justify-content: space-between; padding: 15px 50px; border-bottom: 1px solid #d2d2d7;">
-            <span class="product-name" style="font-weight: bold;">iPad</span>
+        <div class="sub-nav-content">
+            <span class="product-name">iPad</span>
             <span id="nav-price">From RM 1,599</span>
         </div>
     </div>
 
-    <main class="purchase-container">
+    <section class="product-intro-picture fade-on-scroll">
+        <h2>iPad</h2>
+        <h1 class="product-intro-title">Lovable. Drawable. Magical.</h1>
+        <img src="../image/ipad/ipadseries.png" alt="iPad">
+        <h4>
+            Colorfully reimagined and more versatile than ever.<br>
+            With an all-screen design and four gorgeous colors.
+        </h4>
+    </section>
 
-        <section class="gallery">
-            <div class="gallery-wrapper">
-                <img id="main-product-img" src="../image/ipad/ipadseries.png" alt="iPad">
-            </div>
-        </section>
+    <section class="product-information fade-on-scroll">
+        <main class="purchase-container">
 
-        <section class="options-sidebar">
-            <h1 style="font-size: 40px; margin-bottom: 30px;">Buy iPad</h1>
+            <section class="gallery">
+                <div class="gallery-wrapper">
+                    <img id="main-product-img" src="../image/ipad/ipadseries.png" alt="iPad">
+                </div>
+            </section>
 
-            <div style="margin-bottom: 40px;">
+            <section class="options-sidebar">
+                <h1 class="buy-title">Buy iPad</h1>
+
                 <h3>Finish. <span id="color-name" class="gray-text">Select a color</span></h3>
-                <div style="margin-top: 15px;">
+                <div class="swatch-row">
                     <div class="swatch-circle" style="background: #4F7797;" data-image="../image/ipad/ipad-blue.webp"
                         title="Blue"></div>
+
                     <div class="swatch-circle" style="background: #E2E4E1;" data-image="../image/ipad/ipad-silver.webp"
                         title="Silver"></div>
+
                     <div class="swatch-circle" style="background: #E5556E;" data-image="../image/ipad/ipad-pink.webp"
                         title="Pink"></div>
+
                     <div class="swatch-circle" style="background: #F4D03F;" data-image="../image/ipad/ipad-yellow.webp"
                         title="Yellow"></div>
                 </div>
-            </div>
 
-            <div>
                 <h3>Storage. <span class="gray-text">How much space do you need?</span></h3>
 
-                <div style="margin-top: 15px;">
-                    <div class="storage-card" data-price="RM 1,599">
-                        <span class="size">128GB</span>
-                        <span>RM 1,599</span>
-                    </div>
-                    <div class="storage-card" data-price="RM 1,999">
-                        <span class="size">256GB</span>
-                        <span>RM 1,999</span>
-                    </div>
-                    <div class="storage-card" data-price="RM 2,899">
-                        <span class="size">512GB</span>
-                        <span>RM 2,899</span>
-                    </div>
+                <div class="storage-card" data-price="RM 1,599">
+                    <div class="storage-size">128GB</div>
+                    <div class="storage-price">RM 1,599</div>
                 </div>
 
-                <button class="add-to-cart-btn" data-name="iPad" data-price="1599"
-                    data-img="../image/ipad/ipadseries.png"
-                    style="margin-top:30px;padding:15px 25px;font-size:16px;border-radius:12px;border:none;background:#0071e3;color:#fff;cursor:pointer;width:100%;font-weight:600;">
+                <div class="storage-card" data-price="RM 1,999">
+                    <div class="storage-size">256GB</div>
+                    <div class="storage-price">RM 1,999</div>
+                </div>
+
+                <div class="storage-card" data-price="RM 2,899">
+                    <div class="storage-size">512GB</div>
+                    <div class="storage-price">RM 2,899</div>
+                </div>
+
+                <button class="add-to-cart-btn" data-name="iPad" data-img="../image/ipad/ipadseries.png">
                     Add to Cart
                 </button>
-            </div>
+            </section>
 
-        </section>
-    </main>
+        </main>
+    </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Color Selection Logic
-            const swatches = document.querySelectorAll('.swatch-circle');
-            const mainImg = document.getElementById('main-product-img');
-            const colorLabel = document.getElementById('color-name');
-
-            swatches.forEach(swatch => {
-                swatch.addEventListener('click', function () {
-                    const newImg = this.getAttribute('data-image');
-                    if (newImg) {
-                        mainImg.style.opacity = '0';
-                        setTimeout(() => {
-                            mainImg.src = newImg;
-                            mainImg.style.opacity = '1';
-                        }, 150);
-                    }
-                    colorLabel.textContent = this.title;
-                    swatches.forEach(s => s.classList.remove('selected-swatch'));
-                    this.classList.add('selected-swatch');
-                });
-            });
-
-            // Storage Selection Logic
-            const storageCards = document.querySelectorAll('.storage-card');
-            const navPrice = document.getElementById('nav-price');
-
-            storageCards.forEach(card => {
-                card.addEventListener('click', function () {
-                    navPrice.textContent = this.dataset.price;
-                    storageCards.forEach(c => c.classList.remove('selected-storage'));
-                    this.classList.add('selected-storage');
-                });
-            });
-        });
-    </script>
+    <footer>
+        <p>© 2025 TechStore. All rights reserved.</p>
+    </footer>
 
 </body>
 
