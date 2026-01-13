@@ -89,36 +89,20 @@
 
 <body class="product-page">
 
-    <header class="apple-header"
-        style="position: sticky; top: 0; background: #fff; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); padding: 15px 50px;">
-        <div class="header-inner"
-            style="display: flex; align-items: center; justify-content: space-between; gap: 20px;">
-
-            <a href="../main.html" class="back-link"
-                style="font-size: 14px; font-weight: 500; color: #0071e3; text-decoration: none; margin-right: 20px;">
-                ← Back to Store
-            </a>
-
-            <a href="../index.html" class="logo"
-                style="font-size: 24px; font-weight: bold; color: #1d1d1f; text-decoration: none;">
-                TechStore
-            </a>
-
-            <nav class="main-nav" style="display: flex; gap: 25px; margin-left: auto;">
-                <a href="../main.html" style="text-decoration: none; color: #1d1d1f; font-weight: 500;">Store</a>
-                <a href="../iphone/iphone.html"
-                    style="text-decoration: none; color: #1d1d1f; font-weight: 500;">iPhone</a>
-                <a href="ipad.html" class="active"
-                    style="text-decoration: none; color: #0071e3; font-weight: 500;">iPad</a>
-                <a href="../mac/mac.html" style="text-decoration: none; color: #1d1d1f; font-weight: 500;">Mac</a>
-                <a href="../support.html" style="text-decoration: none; color: #1d1d1f; font-weight: 500;">Support</a>
+        <header class="apple-header">
+        <div class="header-inner">
+            <a href="../iphone/iphone.html" class="back-link">← Back to iPhone</a>
+            <a href="../index.html" class="logo">TechStore</a>
+            <nav class="main-nav">
+                <a href="../main.html">Store</a>
+                <a href="iphone.html" class="active">iPhone</a>
+                <a href="../ipad/ipad.html">iPad</a>
+                <a href="../mac/mac.html">Mac</a>
+                <a href="../support.html">Support</a>
             </nav>
-
-            <div class="cart" style="margin-left: 20px;">
-                <a href="../cart.html" style="text-decoration: none; font-size: 18px; color: #1d1d1f;">🛒 <span
-                        id="cart-count" style="font-weight: bold;">0</span></a>
+            <div class="cart">
+                <a href="../cart.html">🛒 <span id="cart-count">0</span></a>
             </div>
-
         </div>
     </header>
 
@@ -156,21 +140,21 @@
                 <h3>Storage. <span class="gray-text">How much space do you need?</span></h3>
 
                 <div style="margin-top: 15px;">
-                    <div class="storage-card" data-price="RM 4,499">
-                        <span class="size">256GB</span>
-                        <span>RM 4,499</span>
+                    <div class="storage-card" data-price="From RM 4,499">
+                        <div class="storage-size">256GB</div>
+                        <div class="storage-price">RM 4,499</div>
                     </div>
                     <div class="storage-card" data-price="RM 5,399">
-                        <span class="size">512GB</span>
-                        <span>RM 5,399</span>
+                        <div class="storage-size">512GB</div>
+                        <div class="storage-price">RM 5,399</div>
                     </div>
                     <div class="storage-card" data-price="RM 7,199">
-                        <span class="size">1TB</span>
-                        <span>RM 7,199</span>
+                        <div class="storage-size">1TB</div>
+                        <div class="storage-price">RM 7,199</div>
                     </div>
                     <div class="storage-card" data-price="RM 8,999">
-                        <span class="size">2TB</span>
-                        <span>RM 8,999</span>
+                        <div class="storage-size">2TB</div>
+                        <div class="storage-price">RM 8,999</div>
                     </div>
                 </div>
 
@@ -184,42 +168,9 @@
         </section>
     </main>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-
-            const swatches = document.querySelectorAll('.swatch-circle');
-            const mainImg = document.getElementById('main-product-img');
-            const colorLabel = document.getElementById('color-name');
-
-            swatches.forEach(swatch => {
-                swatch.addEventListener('click', function () {
-                    const newImg = this.getAttribute('data-image');
-                    if (newImg) {
-                        mainImg.style.opacity = '0';
-                        setTimeout(() => {
-                            mainImg.src = newImg;
-                            mainImg.style.opacity = '1';
-                        }, 150);
-                    }
-                    colorLabel.textContent = this.title;
-                    swatches.forEach(s => s.classList.remove('selected-swatch'));
-                    this.classList.add('selected-swatch');
-                });
-            });
-
-            const storageCards = document.querySelectorAll('.storage-card');
-            const navPrice = document.getElementById('nav-price');
-
-            storageCards.forEach(card => {
-                card.addEventListener('click', function () {
-                    navPrice.textContent = this.dataset.price;
-                    storageCards.forEach(c => c.classList.remove('selected-storage'));
-                    this.classList.add('selected-storage');
-                });
-            });
-        });
-    </script>
-
+    <footer>
+        <p>© 2025 TechStore. All rights reserved.</p>
+    </footer>
 </body>
 
 </html>

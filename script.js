@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* 5. STORAGE SELECTION */
     const storageCards = document.querySelectorAll('.storage-card');
+    console.log(storageCards);
     const navPrice = document.getElementById('nav-price');
 
     storageCards.forEach(card => {
@@ -118,8 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
             saveCart();
             updateCartCount();
 
-            alert(`${product.name} added to cart 🛒`);
-            // alert(`${product.name} added to cart! 🛒`);
             showNotification(`${product.name}`);
         });
     }
@@ -152,8 +151,9 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
         
+        // Force restrat animation to allow frequency click
         myNotifElement.classList.remove('show');
-        void myNotifElement.offsetWidth; // Force restart animation
+        void myNotifElement.offsetWidth; 
         myNotifElement.classList.add('show');
         
         setTimeout(() => {
