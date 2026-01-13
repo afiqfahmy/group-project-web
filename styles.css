@@ -165,11 +165,13 @@ a {
     color: inherit;
     /* Smooth transition for hover */
     transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    /* Force the GPU to handle the layer (locks the pixels) */
+    transform: translateZ(0);
 }
 
 /* Make it slightly brighter or add a shadow on hover */
 .product-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) translateZ(0);
     /* ADDED: Slightly deeper shadow on hover */
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
 }
@@ -181,6 +183,13 @@ a {
     /* Adjust to match your screenshots */
     object-fit: contain;
     margin-bottom: 20px;
+
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+.product-card:hover img {
+    transform: scale(1.00); /* Subtle zoom effect */
 }
 
 .product-card h2 {
@@ -212,7 +221,7 @@ a {
 
 .product-img {
     width: 100%;
-    height: 260px;
+    height: 200px;
     margin-bottom: 24px;
     border-radius: 14px;
 }
@@ -220,7 +229,7 @@ a {
 .product-img img,
 .product-card img {
     width: 100%;
-    height: 260px;
+    height: 200px;
     object-fit: contain;
 }
 
