@@ -92,7 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-
     /* 6. ADD TO CART */
     const addToCartBtn = document.querySelector('.add-to-cart-btn');
 
@@ -115,12 +114,12 @@ document.addEventListener('DOMContentLoaded', () => {
             saveCart();
             updateCartCount();
 
-            showNotification(`${product.name}`);
+            showNotification(`${product.name}`, "added to cart.");
         });
     }
 
     /* 7. NOTIFICATION LOGIC */
-    function showNotification(productName) {
+    function showNotification(productName, sentences) {
         let myNotifElement = document.getElementById('custom-alert');
 
         if (!myNotifElement) {
@@ -134,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="alert-content">
                 <span class="alert-icon">✓</span>
                 <span style="font-family: -apple-system, sans-serif; font-size: 14px; color: #1d1d1f;">
-                    ${productName} added to bag 🛒
+                    ${productName} ${sentences}
                 </span>
             </div>
         `;
@@ -206,6 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 saveCart();
                 updateCartCount();
                 renderCart(); // Re-render the list immediately
+                showNotification("Item ", "removed from cart.");
             });
         });
     }
