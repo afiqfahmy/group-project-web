@@ -18,77 +18,42 @@
             max-width: 50%;
             height: 70%;
         }
-
-        /* Rewrite the sequence for the fade out animation */
-        .produuct-intro-page:nth-child(1) {
-            transition-delay: 100ms;
-        }
-
-        .produuct-intro-page:nth-child(2) {
-            transition-delay: 200ms;
-        }
-
-        .produuct-intro-page:nth-child(3) {
-            transition-delay: 300ms;
-        }
     </style>
 </head>
-    <!-- HEADER -->
-    <header class="apple-header"
-        style="position: sticky; top: 0; background: #fff; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); padding: 15px 50px;">
-        <div class="header-inner"
-            style="display: flex; align-items: center; justify-content: space-between; gap: 20px;">
-
-            <!-- Back to Store -->
-            <a href="../main.html" class="back-link"
-                style="font-size: 14px; font-weight: 500; color: #0071e3; text-decoration: none; margin-right: 20px;">
-                ← Back to Store
-            </a>
-
-            <!-- Logo -->
-            <a href="../index.html" class="logo"
-                style="font-size: 24px; font-weight: bold; color: #1d1d1f; text-decoration: none;">
-                TechStore
-            </a>
-
-            <!-- Navigation -->
-            <nav class="main-nav" style="display: flex; gap: 25px; margin-left: auto;">
-                <a href="../main.html" style="text-decoration: none; color: #1d1d1f; font-weight: 500;">Store</a>
-                <a href="../iphone/iphone.html"
-                    style="text-decoration: none; color: #1d1d1f;font-weight: 500;">iPhone</a>
-                <a href="../ipad/ipad.html" style="text-decoration: none; color: #1d1d1f; font-weight: 500;">iPad</a>
-                <a href="../mac/mac.html" class="active"
-                    style="text-decoration: none; color: #0071e3; font-weight: 500;">Mac</a>
-                <a href="../support.html" style="text-decoration: none; color: #1d1d1f; font-weight: 500;">Support</a>
+    <header class="apple-header">
+        <div class="header-inner">
+            <a href="../main.html" class="back-link">← Back to Store</a>
+            <a href="../index.html" class="logo">TechStore</a>
+            <nav class="main-nav">
+                <a href="../main.html">Store</a>
+                <a href="../iphone/iphone.html">iPhone</a>
+                <a href="../ipad/ipad.html">iPad</a>
+                <a href="../mac/mac.html" class="active">Mac</a>
+                <a href="../support.html">Support</a>
             </nav>
-
-            <!-- Cart -->
-            <div class="cart" style="margin-left: 20px;">
-                <a href="../cart.html" style="text-decoration: none; font-size: 18px; color: #1d1d1f;">🛒 <span
-                        id="cart-count" style="font-weight: bold;">0</span></a>
+            <div class="cart">
+                <a href="../cart.html">🛒 <span id="cart-count">0</span></a>
             </div>
-
         </div>
     </header>
 
-
 <body class="product-intro-page">
-    <!-- Main banner for the intro page -->
+    <!--
     <section class="product-intro-picture fade-on-scroll">
         <h2 class="fade-on-scroll">Mac Book Air</h2>
         <h1 class="product-intro-title fade-on-scroll">Speed of lightness</h1>
         <img class="fade-on-scroll" src="../image/mac/mca-intro-picture.png" alt="MacBookPro picture">
         
-        <!-- This description is only description that align in center -->
+        This description is only description that align in center
         <h4 class="product-desc" style="text-align: center;">MacBook Air is the world's most popular laptop for a reason. <br> 
             Actually, for a lot of reasons. It delivers <mark>up to 18 hours</mark><br>
             of battery life.1 The <mark>M4 chip </mark>unlocks a whole new level of <br> 
             performance for work and play. <mark> Apple Intelligence </mark> is built in <br>
-            to help you get things done effortlessly. And it now comes in a <br> 
-            stunning Sky Blue color. With the perfectly portable MacBook Air, <br>
-            you'll be ready to take on just about anything, anywhere.</h4>
+            to help you get things done effortlessly. And it now comes in <br>  
+            a stunning Sky Blue color. With the perfectly portable <br> 
+            MacBook Air, you'll be ready to take on just about anything, anywhere.</h4>
     </section>
-    <!-- The details content page -->
+    <!-- The details content page
     <section class="product-information fade-on-scroll">
         <p class="product-intro-subtitle">Design</p>
         <h1>Built to go places</h1>
@@ -100,7 +65,7 @@
                 has a durable recycled aluminum enclosure.
             </h4>
         </div>
-        <!-- Section compare the different size of mac book air -->
+        <!-- Section compare the different size of mac book air 
         <div class="compare-size-banner fade-on-scroll">
             <img src="../image/mac/mca-compare-size.png" alt="Compare size"><br>
             <h4 class="product-desc">
@@ -108,81 +73,98 @@
                 15‑inch model gives you even more space on screen for multitasking.
             </h4>
         </div>
-        <!-- Section show the different color for mac book air -->
-        <div class="preview-color">
-            <img id="product-img" src="../image/mac/mca_preview_left_skyblue.png" alt="Product image">
-            <img id="product-img-2" src="../image/mac/mca_preview_right_skyblue.png" alt="Product image">
-            <div class="action-container">
-                <div class="swatch-row" style="margin-top: 15px;">
-                    <div class="swatch-circle" style="background: #C8D8E0; display: flex; flex-direction: column; text-align: center;"
-                        data-image="../image/mac/mca_preview_left_skyblue.png" 
-                        data-image-2="../image/mac/mca_preview_right_skyblue.png"
-                        title="Sky Blue">
-                        <p id="color-name" style="font-size: 8px; color: black; margin-top: 40px;">Sky Blue</p>
-                    </div>
-                    <div class="swatch-circle" style="background: #E3E4E6; display: flex; flex-direction: column; text-align: center;"
-                        data-image="../image/mac/mca_preview_left_silver.png" 
-                        data-image-2="../image/mac/mca_preview_right_silver.png"
-                        title="Silver">
-                        <p id="color-name" style="font-size: 8px; color: black; margin-top: 40px;">Silver</p>
-                    </div>
-                    <div class="swatch-circle" style="background: #F0E4D3; display: flex; flex-direction: column; text-align: center;"
-                        data-image="../image/mac/mca_preview_left_starlight.png" 
-                        data-image-2="../image/mac/mca_preview_right_starlight.png"
-                        title="Starlight">
-                        <p id="color-name" style="font-size: 8px; color: black; margin-top: 40px;">Starlight</p>
-                    </div>
-                    <div class="swatch-circle" style="background: #2E3642; display: flex; flex-direction: column; text-align: center;"
-                        data-image="../image/mac/mca_preview_left_midnight.png" 
-                        data-image-2="../image/mac/mca_preview_right_midnight.png"
-                        title="Midnight">
-                        <p id="color-name" style="font-size: 8px; color: black; margin-top: 40px;">Midnight</p>
-                    </div>
-                </div>
-                <div class="add-to-cart-button-container">
-                    <!-- Can using hard code to manually assign the id, name and quantity for every product -->
-                    <button class="add-to-cart-button" onclick="add_to_cart('001', 'iPhone 17 Pro Max', '6')">Add to cart</button>
-                </div>
-            </div>
+    </section>
+    -->
+    <div class="sub-nav">
+        <div class="sub-nav-content">
+            <span class="product-name">MacBook Air</span>
+            <span id="nav-price">From RM 2,799</span>
         </div>
-        
+    </div>
+
+    <section class="product-intro-picture fade-on-scroll">
+        <h2>MacBook Air</h2>
+        <h1 class="product-intro-title">Speed of lightness.</h1>
+        <img src="../image/mac/mca-intro-picture.png" alt="iPad Air">
+        <h4>
+            Up to <mark>18 hours </mark>of battery life<br>
+            <mark>M4 chip</mark><br>
+            Apple Intelligence
+        </h4>
     </section>
 
-    <script>
-        // Color logic
-        document.addEventListener('DOMContentLoaded', () => {
+    <section class="product-information fade-on-scroll">
+        <p class="product-intro-subtitle">Design</p>
+        <h1>Built to go places</h1>
+        <img src="../image/mac/design_hero.jpg" alt="Hero banner">
+        <div class="product-desc-holder">
+            <h4 class="product-desc">
+                <mark>Remarkably light and less than half an inch thin, </mark> MacBook Air fits easily into your on-the-go <br>
+                lifestyle — and your bag. MacBook Air with M4 is made with over 50 percent recycled materials and <br>
+                has a durable recycled aluminum enclosure.
+            </h4>
+        </div>
+    </section>
 
-        const swatches = document.querySelectorAll('.swatch-circle');
-        const mainImg = document.getElementById('product-img');
-        const mainImg2 = document.getElementById('product-img-2');
-        const colorLabel = document.getElementById('color-name');
+    <section class="product-information fade-on-scroll">
+        <main class="purchase-container">
 
-        swatches.forEach(swatch => {
-            swatch.addEventListener('click', function () {
-                const newImg = this.getAttribute('data-image');
-                const newImg2 = this.getAttribute('data-image-2');
-                if (newImg && newImg2) {
-                    mainImg.style.opacity = '0'; // Quick fade out
-                    mainImg2.style.opacity = '0';
-                    setTimeout(() => {
-                        mainImg.src = newImg;
-                        mainImg.style.opacity = '1'; // Fade in
+            <section class="gallery">
+                <div class="gallery-wrapper">
+                    <img id="main-product-img" src="../image/mac/macbook-air-13-all-color.png" alt="MacBook Air">
+                </div>
+            </section>
 
-                        mainImg2.src = newImg2;
-                        mainImg2.style.opacity = '1';
-                    }, 150);
-                } 
+            <section class="options-sidebar">
+                <h1 class="buy-title">Buy MacBook Air</h1>
+
+                <h3>Finish. <span id="color-name" class="gray-text">Select a color</span></h3>
+                <div class="swatch-row">
+                    <div class="swatch-circle" style="background: #C8D8E0;"
+                        data-image="../image/mac/mca_skyblue.png" title="Sky Blue"></div>
+
+                    <div class="swatch-circle" style="background: #E3E4E6;"
+                        data-image="../image/mac/mca_silver.png" title="Silver"></div>
+
+                    <div class="swatch-circle" style="background: #F0E4D3;"
+                        data-image="../image/mac/mca_starlight.png" title="Starlight"></div>
+
+                    <div class="swatch-circle" style="background: #2E3642;"
+                        data-image="../image/mac/mca_midnight.png" title="Mid Night"></div>
+                </div>
+
+                <h3>Storage. <span class="gray-text">How much space do you need?</span></h3>
                 
-                colorLabel.innerText = this.getAttribute('title');
-                swatches.forEach(s => s.classList.remove('selected-swatch'));
-                this.classList.add('selected-swatch');
-            });
-        });
-    });
-    </script>
+                <div style="margin-top: 15px;">
+                    <div class="storage-card" data-price="RM 4,055">
+                        <div class="storage-size">256 GB + 16 GB RAM</div>
+                        <div class="storage-price">RM 4,055</div>
+                    </div>
+
+                    <div class="storage-card" data-price="RM 4,865">
+                        <div class="storage-size">512 GB +  16 GB RAM</div>
+                        <div class="storage-price">RM 4,865</div>
+                    </div>
+
+                    <div class="storage-card" data-price="RM 5,680">
+                        <div class="storage-size">512 GB + 18 GB</div>
+                        <div class="storage-price">RM 5,680</div>
+                    </div>
+
+                <button class="add-to-cart-btn" data-name="MacBook Air" data-img="../image/mac/mba_13_15.png">
+                    Add to Cart
+                </button>
+            </section>
+
+        </main>
+    </section>
 
     <script src="../script.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
+    <footer>
+        <p>© 2025 TechStore. All rights reserved.</p>
+    </footer>
 </body>
 
 </html>

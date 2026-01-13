@@ -211,4 +211,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     renderCart(); // Run on load to see if we are on the cart page
+
+    /* 10. Smooth scrolling experience */
+    const lenis = new Lenis({
+        duration: 1.2,       // How long the scroll slide lasts (higher = smoother)
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
+        direction: 'vertical',
+        gestureDirection: 'vertical',
+        smooth: true,
+        mouseMultiplier: 1,   // Sensitivity
+        touchMultiplier: 2,
+    });
+
+    // The Animation Loop
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
 });

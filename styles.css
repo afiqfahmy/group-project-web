@@ -242,6 +242,10 @@ a {
 /* ===================================================================================================== */
 /* ============================================ PRODUCT INTRODUCTION PAGE ==================================== */
 /* ===================================================================================================== */
+.product-intro-page {
+    background-color: white;
+}
+
 .product-intro-page mark {
     background: transparent;
 }
@@ -257,7 +261,7 @@ a {
 }
 
 .product-intro-picture h2 {
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 .product-intro-title {
@@ -294,6 +298,10 @@ a {
     font-weight: bold;
     padding-left: 20%;
     padding-top: 5%;
+}
+
+.product-information {
+    margin-top: 50px;
 }
 
 .product-information h1 {
@@ -560,7 +568,7 @@ a {
 
 /* Purchase Section */
 .product-information {
-    padding: 80px 0;
+    padding-bottom: 40px 0;
 }
 
 .purchase-container {
@@ -827,6 +835,22 @@ a {
 .fade-on-scroll.is-visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+.fade-on-scroll:nth-child(1) {
+    transition-delay: 0s;
+}
+
+.fade-on-scroll:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.fade-on-scroll:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+.fade-on-scroll:nth-child(4) {
+    transition-delay: 0.3s;
 }
 
 /* =========================
