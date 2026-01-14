@@ -946,3 +946,73 @@ footer {
     /* Pro Tip: Ensures clicks pass through to the video if needed */
     pointer-events: none;
 }
+
+/* Table */
+
+/* Section Styling */
+.comparison-section {
+    max-width: 1000px;
+    margin: 80px auto; /* Centers the section */
+    padding: 0 20px;
+    position: relative;
+    z-index: 1; /* Ensures it sits above your video background */
+}
+
+.section-title {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+/* The Table Container - Makes it scrollable on mobile */
+.table-container {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05); /* Soft shadow */
+    overflow-x: auto; /* Adds scrollbar if screen is too small */
+}
+
+/* The Table Itself */
+.specs-table {
+    width: 100%;
+    border-collapse: collapse; /* Removes the "double border" gap */
+    min-width: 600px; /* Ensures table doesn't get too squished */
+}
+
+/* Headers (Model Names) */
+.specs-table th {
+    text-align: left;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    border-bottom: 2px solid #1d1d1f; /* Thick black line under headers */
+    width: 33%; /* Equal width columns */
+}
+
+/* The First Column (Labels like "Camera", "Chip") */
+.specs-table .feature-label {
+    color: #86868b; /* Grey text */
+    font-weight: 500;
+    font-size: 16px;
+}
+
+/* Data Cells */
+.specs-table td {
+    padding: 25px 20px;
+    border-bottom: 1px solid #d2d2d7; /* Thin grey line between rows */
+    font-size: 17px;
+    color: #1d1d1f;
+    vertical-align: top; /* Aligns text to top if one cell has more text */
+}
+
+/* Remove the border from the very last row for a cleaner look */
+.specs-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Hover Effect: Highlights the row you are reading */
+.specs-table tbody tr:hover {
+    background-color: #f5f5f7; /* Very light grey */
+}
