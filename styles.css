@@ -184,12 +184,12 @@ a {
     object-fit: contain;
     margin-bottom: 20px;
 
-    transform: translateZ(0);
-    backface-visibility: hidden;
+    transform: scale(1.0);
+    transition: transform 0.3s ease;
 }
 
 .product-card:hover img {
-    transform: scale(1.00); /* Subtle zoom effect */
+    transform: scale(1.05); /* Subtle zoom effect */
 }
 
 .product-card h2 {
