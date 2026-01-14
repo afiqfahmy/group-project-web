@@ -913,3 +913,36 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* =========================
+    15. Video
+========================= */
+.fixed-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -10;
+    object-fit: cover;
+}
+
+.white-filter {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* 255, 255, 255 = White */
+    /* 0.85 = 85% Opacity (Very strong filter) */
+    background: rgba(255, 255, 255, 0.5); 
+    
+    /* Layering Logic */
+    z-index: -5; /* Sits ON TOP of video (-10) but BEHIND text (0) */
+    
+    /* Pro Tip: Ensures clicks pass through to the video if needed */
+    pointer-events: none;
+}
