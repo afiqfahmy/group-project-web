@@ -17,7 +17,7 @@ A modern web-based design system built to deliver a smooth, interactive, and vis
 - CSS
 - JavaScript
 
-- ## Contributors
+## Contributors
 
 - AFIQ FAHMI
 - NIK MARIYAH SOFEAH
